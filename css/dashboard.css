@@ -201,6 +201,55 @@ body.dashboard-body{ background: var(--ink); }
 .activity-body p{ font-size: .87rem; }
 .activity-body time{ font-size: .74rem; color: var(--text-faint); font-family: var(--font-mono); }
 
+.workflow-list{
+  display: grid;
+  gap: var(--space-md);
+}
+.workflow-card{
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: var(--space-sm);
+}
+.workflow-card__meta{
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+.workflow-avatar{
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: .95rem;
+}
+.workflow-avatar--brass{ background: var(--brass-dim); color: var(--brass); }
+.workflow-avatar--teal{ background: var(--teal-dim); color: var(--teal); }
+.workflow-avatar--surface{ background: var(--surface-3); color: var(--text); }
+.workflow-card h3{
+  font-size: 1.05rem;
+  margin: 0;
+  line-height: 1.3;
+}
+.workflow-card p{
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+.workflow-card .text-faint{
+  font-size: .95rem;
+  color: var(--text-faint);
+}
+.workflow-card .progress-card__bar{
+  margin: .75rem 0;
+}
+
 /* Quick actions */
 .quick-actions{ display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-sm); }
 .quick-action{

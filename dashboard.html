@@ -123,7 +123,7 @@
             <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Vendor onboarding due tomorrow</a>
           </div>
         </div>
-        <a href="404.html" class="btn btn-primary hide-mobile">
+        <a href="404.html" class="btn btn-primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
           New workflow
         </a>
@@ -230,77 +230,69 @@
         </div>
       </div>
 
-      <div class="card dash-panel">
-        <div style="display:flex;flex-direction:column;gap:.7rem;">
-
-          <div class="expand-card is-open">
-            <button class="expand-card__head">
-              <div class="table-user"><span class="table-avatar" style="background:var(--brass-dim);color:var(--brass);">VO</span><div><h3 style="font-size:1rem;">Vendor onboarding —Supplies</h3><span class="text-faint" style="font-size:.78rem;">Step 3 of 5 · Due Aug 12</span></div></div>
-              <span class="expand-card__plus" aria-hidden="true"></span>
-            </button>
-            <div class="expand-card__body" style="max-height:200px;">
-              <div class="expand-card__body-inner">
-                <p style="margin-bottom:.8rem;">Waiting on procurement sign-off before the vendor is added to the approved  list.</p>
-                <div class="progress-card__bar" style="margin:0 0 .8rem;"><div class="progress-card__fill" style="width:60%;"></div></div>
-                <a href="#" class="btn btn-secondary btn-sm">Open workflow</a>
+      <div class="workflow-list">
+          <article class="workflow-card">
+            <div class="workflow-card__meta">
+              <span class="workflow-avatar workflow-avatar--brass">VO</span>
+              <div>
+                <h3>Vendor onboarding — Supplies</h3>
+                <p class="text-faint">Step 3 of 5 · Due Aug 12</p>
               </div>
             </div>
-          </div>
+            <p>Waiting on procurement sign-off before the vendor is added to the approved list.</p>
+            <div class="progress-card__bar"><div class="progress-card__fill" style="width:60%;"></div></div>
+            <a href="404.html" class="btn btn-secondary btn-sm">Open workflow</a>
+          </article>
 
-          <div class="expand-card">
-            <button class="expand-card__head">
-              <div class="table-user"><span class="table-avatar" style="background:var(--teal-dim);color:var(--teal);">EX</span><div><h3 style="font-size:1rem;">Expense rendering — July</h3><span class="text-faint" style="font-size:.78rem;">Step 5 of 5 · Completed</span></div></div>
-              <span class="expand-card__plus" aria-hidden="true"></span>
-            </button>
-            <div class="expand-card__body">
-              <div class="expand-card__body-inner">
-                <p style="margin-bottom:.8rem;">All line items reconciled and closed. Report has been archived automatically.</p>
-                <a href="404.html" class="btn btn-secondary btn-sm">View summary</a>
+          <article class="workflow-card">
+            <div class="workflow-card__meta">
+              <span class="workflow-avatar workflow-avatar--teal">EX</span>
+              <div>
+                <h3>Expense rendering — July</h3>
+                <p class="text-faint">Step 5 of 5 · Completed</p>
               </div>
             </div>
-          </div>
+            <p>All line items reconciled and closed. Report has been archived automatically.</p>
+            <a href="404.html" class="btn btn-secondary btn-sm">View summary</a>
+          </article>
 
-          <div class="expand-card">
-            <button class="expand-card__head">
-              <div class="table-user"><span class="table-avatar" style="background:var(--surface-3);">CR</span><div><h3 style="font-size:1rem;">Contract renewal — Northwind Systems</h3><span class="text-faint" style="font-size:.78rem;">Step 1 of 4 · Due Aug 20</span></div></div>
-              <span class="expand-card__plus" aria-hidden="true"></span>
-            </button>
-            <div class="expand-card__body">
-              <div class="expand-card__body-inner">
-                <p style="margin-bottom:.8rem;">Draft terms sent to legal for review. Waiting on redline before it moves forward.</p>
-                <div class="progress-card__bar" style="margin:0 0 .8rem;"><div class="progress-card__fill" style="width:20%;"></div></div>
-                <a href="404.html" class="btn btn-secondary btn-sm">Open workflow</a>
+          <article class="workflow-card">
+            <div class="workflow-card__meta">
+              <span class="workflow-avatar workflow-avatar--surface">CR</span>
+              <div>
+                <h3>Contract renewal — Northwind Systems</h3>
+                <p class="text-faint">Step 1 of 4 · Due Aug 20</p>
               </div>
             </div>
-          </div>
+            <p>Draft terms sent to legal for review. Waiting on redline before it moves forward.</p>
+            <div class="progress-card__bar"><div class="progress-card__fill" style="width:20%;"></div></div>
+            <a href="404.html" class="btn btn-secondary btn-sm">Open workflow</a>
+          </article>
 
-          <div class="expand-card">
-            <button class="expand-card__head">
-              <div class="table-user"><span class="table-avatar" style="background:var(--brass-dim);color:var(--brass);">PR</span><div><h3 style="font-size:1rem;">Purchase request — new laptops</h3><span class="text-faint" style="font-size:.78rem;">Step 2 of 3 · Due Aug 15</span></div></div>
-              <span class="expand-card__plus" aria-hidden="true"></span>
-            </button>
-            <div class="expand-card__body">
-              <div class="expand-card__body-inner">
-                <p style="margin-bottom:.8rem;">Budget approved by finance — waiting on IT to confirm specs before ordering.</p>
-                <div class="progress-card__bar" style="margin:0 0 .8rem;"><div class="progress-card__fill" style="width:66%;"></div></div>
-                <a href="404.html" class="btn btn-secondary btn-sm">Open workflow</a>
+          <article class="workflow-card">
+            <div class="workflow-card__meta">
+              <span class="workflow-avatar workflow-avatar--brass">PR</span>
+              <div>
+                <h3>Purchase request — new laptops</h3>
+                <p class="text-faint">Step 2 of 3 · Due Aug 15</p>
               </div>
             </div>
-          </div>
+            <p>Budget approved by finance — waiting on IT to confirm specs before ordering.</p>
+            <div class="progress-card__bar"><div class="progress-card__fill" style="width:66%;"></div></div>
+            <a href="404.html" class="btn btn-secondary btn-sm">Open workflow</a>
+          </article>
 
-          <div class="expand-card">
-            <button class="expand-card__head">
-              <div class="table-user"><span class="table-avatar" style="background:var(--teal-dim);color:var(--teal);">OB</span><div><h3 style="font-size:1rem;">New hire onboarding — Theo Brandt</h3><span class="text-faint" style="font-size:.78rem;">Step 4 of 4 · Completed</span></div></div>
-              <span class="expand-card__plus" aria-hidden="true"></span>
-            </button>
-            <div class="expand-card__body">
-              <div class="expand-card__body-inner">
-                <p style="margin-bottom:.8rem;">Accounts provisioned and equipment shipped. Start date confirmed for Aug 18.</p>
-                <a href="404.html" class="btn btn-secondary btn-sm">View summary</a>
+          <article class="workflow-card">
+            <div class="workflow-card__meta">
+              <span class="workflow-avatar workflow-avatar--teal">OB</span>
+              <div>
+                <h3>New hire onboarding — Theo Brandt</h3>
+                <p class="text-faint">Step 4 of 4 · Completed</p>
               </div>
             </div>
-          </div>
-
+            <p>Accounts provisioned and equipment shipped. Start date confirmed for Aug 18.</p>
+            <a href="404.html" class="btn btn-secondary btn-sm">View summary</a>
+          </article>
         </div>
       </div>
     </div>
