@@ -36,7 +36,7 @@
   .footer__top{ grid-template-columns: 1fr 1fr; }
   .footer__brand{ grid-column: span 2; }
 
-  .contact-layout, .auth-shell, .blog-featured{ grid-template-columns: 1fr; }
+  .contact-layout, .auth-shell{ grid-template-columns: 1fr; }
   .auth-visual{ display: none; }
   .service-row{ grid-template-columns: 1fr; gap: var(--space-sm); }
   .service-row__num{ display: none; }
