@@ -12,6 +12,8 @@
   .overview__lead{ grid-column: span 2; }
   .overview__mock{ grid-column: span 2; grid-row: span 1; height: 320px; }
   .features__grid, .services__grid, .testi__grid, .mission-grid, .blog-grid, .dash-bento{ grid-template-columns: repeat(2, 1fr); }
+  /* slightly reduce sidebar on narrower desktops to avoid horizontal squeeze */
+  .dash-sidebar{ width: 220px; }
   .services-process{ grid-template-columns: repeat(2, 1fr); }
   .solutions__layout{ grid-template-columns: 1fr; }
   .solutions__sticky{ position: static; }
@@ -123,6 +125,11 @@
   .welcome-banner .btn-primary svg{
     width: 14px;
     height: 14px;
+  }
+
+  /* Show "New report" button on mobile (override hide-mobile) */
+  .welcome-banner .btn-primary.hide-mobile{
+    display: inline-flex !important;
   }
 
   /* Prevent workflow/expandable cards from forcing horizontal scroll */
@@ -320,4 +327,46 @@
     max-width: 100vw;
     box-sizing: border-box;
   }
+
+  /* Dashboard-specific mobile tweaks */
+  .dash-sidebar{
+    width: 100%;
+    max-width: 320px;
+    left: 0;
+    top: 68px;
+  }
+
+  .dash-main{ padding-inline: var(--space-md); }
+
+  .dash-panel{ padding: var(--space-md); }
+
+  /* Allow table cells to wrap on small viewports to prevent horizontal overflow */
+  .dash-table th, .dash-table td{ white-space: normal; word-break: break-word; }
+
+  /* Make quick actions responsive and stack nicely */
+  .quick-actions{ grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+  .quick-action{ padding: .75rem; }
 }
+
+  /* Recent users: allow horizontal scrolling on small screens */
+  .recent-users-card .dash-table-wrap{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .recent-users-card .dash-table{
+    min-width: 640px;
+  }
+
+  /* Top workflows table: ensure horizontal scroll available on small screens */
+  .top-workflows-table{
+    min-width: 640px;
+  }
+
+  /* Recent reports: allow horizontal scrolling on small screens */
+  .recent-reports-card .dash-table-wrap{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .recent-reports-table{
+    min-width: 640px;
+  }

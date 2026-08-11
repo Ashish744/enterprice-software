@@ -81,10 +81,7 @@
     </div>
     <div class="dash-sidebar__section">
       <span class="dash-sidebar__label">Management</span>
-      <a href="404.html" class="dash-sidebar__link" data-panel="users" data-panel-label="Users">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14a5.2 5.2 0 0 1 5.5 6"/></svg>
-        Users
-      </a>
+       
       <a href="404.html" class="dash-sidebar__link" data-panel="revenue" data-panel-label="Revenue">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.5-5-3.5S7 4.6 7 6.5c0 4 10 2 10 6.5 0 2.2-2.4 4-5.5 4S6 15.7 6 13.5"/></svg>
         Revenue
@@ -143,9 +140,9 @@
 
     <div class="dash-tabs" data-tabs>
       <button class="dash-tab is-active" data-tab="today">Today</button>
-      <button class="dash-tab" data-tab="week">This week</button>
+      <!-- <button class="dash-tab" data-tab="week">This week</button>
       <button class="dash-tab" data-tab="month">This month</button>
-      <button class="dash-tab" data-tab="quarter">This quarter</button>
+      <button class="dash-tab" data-tab="quarter">This quarter</button> -->
     </div>
 
     <!-- KPI cards -->
@@ -206,7 +203,7 @@
 
     <div class="grid dash-bento" style="grid-template-columns: 2fr 1fr;">
       <!-- Users table -->
-      <div class="card dash-panel">
+      <div class="card dash-panel recent-users-card">
         <div class="dash-panel__head">
           <h3>Recent users</h3>
           <a href="#" class="dash-panel__more">View all</a>
@@ -375,7 +372,7 @@
       <div class="card dash-panel" style="margin-top:var(--space-lg);">
         <div class="dash-panel__head"><h3>Top workflows by volume</h3></div>
         <div class="dash-table-wrap">
-          <table class="dash-table">
+          <table class="dash-table top-workflows-table">
             <thead><tr><th>Workflow</th><th>Runs today</th><th>Success rate</th><th>Avg. duration</th></tr></thead>
             <tbody>
               <tr><td>Vendor onboarding</td><td class="text-muted">4,812</td><td><span class="status-pill is-active">99.4%</span></td><td class="text-faint mono" style="font-size:.8rem;">2m 40s</td></tr>
@@ -404,10 +401,10 @@
         </div>
       </div>
 
-      <div class="card dash-panel">
+      <div class="card dash-panel recent-reports-card">
         <div class="dash-panel__head"><h3>Recent reports</h3></div>
         <div class="dash-table-wrap">
-          <table class="dash-table">
+          <table class="dash-table recent-reports-table">
             <thead><tr><th>Report</th><th>Type</th><th>Generated</th><th>Status</th><th></th></tr></thead>
             <tbody>
               <tr>
@@ -507,7 +504,7 @@
 
       <div class="card dash-panel">
         <div class="dash-table-wrap">
-          <table class="dash-table">
+          <!-- <table class="dash-table">
             <thead><tr><th>User</th><th>Role</th><th>Workspace</th><th>Status</th><th>Joined</th></tr></thead>
             <tbody>
               <tr><td><div class="table-user"><span class="table-avatar">RM</span>Rina Mehta</div></td><td class="text-muted">Workspace Admin</td><td class="text-muted">Operations</td><td><span class="status-pill is-active">Active</span></td><td class="text-faint mono" style="font-size:.8rem;">Aug 2, 2026</td></tr>
@@ -518,7 +515,7 @@
               <tr><td><div class="table-user"><span class="table-avatar">PN</span>Priya Nair</div></td><td class="text-muted">Viewer</td><td class="text-muted">Legal</td><td><span class="status-pill is-active">Active</span></td><td class="text-faint mono" style="font-size:.8rem;">Jul 9, 2026</td></tr>
               <tr><td><div class="table-user"><span class="table-avatar">MO</span>Marcus Ortega</div></td><td class="text-muted">Editor</td><td class="text-muted">Logistics</td><td><span class="status-pill is-active">Active</span></td><td class="text-faint mono" style="font-size:.8rem;">Jun 30, 2026</td></tr>
             </tbody>
-          </table>
+          </table> -->
         </div>
       </div>
     </div>
@@ -695,12 +692,12 @@
         <div class="dash-panel__head"><h3>Active sessions</h3></div>
         <div class="dash-table-wrap">
           <table class="dash-table">
-            <thead><tr><th>Device</th><th>Location</th><th>Last active</th><th></th></tr></thead>
-            <tbody>
+            <!-- <thead><tr><th>Device</th><th>Location</th><th>Last active</th><th></th></tr></thead> -->
+            <!-- <tbody>
               <tr><td>Chrome on macOS</td><td class="text-muted">San Francisco, US</td><td class="text-faint mono" style="font-size:.8rem;">Just now</td><td><span class="status-pill is-active">This device</span></td></tr>
               <tr><td>Safari on iOS</td><td class="text-muted">San Francisco, US</td><td class="text-faint mono" style="font-size:.8rem;">3 hr ago</td><td><a href="#" class="dash-panel__more">Revoke</a></td></tr>
               <tr><td>Chrome on Windows</td><td class="text-muted">Austin, US</td><td class="text-faint mono" style="font-size:.8rem;">2 days ago</td><td><a href="#" class="dash-panel__more">Revoke</a></td></tr>
-            </tbody>
+            </tbody> -->
           </table>
         </div>
       </div>
