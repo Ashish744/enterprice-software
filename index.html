@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fulcrum — The Pivot Point for Enterprise Operations</title>
+<meta name="description" content="Fulcrum unifies workflows, data pipelines and decisions into a single operations platform built for the enterprise.">
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ============================== LOADING SCREEN ============================== -->
+<div class="loader" data-loader aria-hidden="true">
+  <div class="loader__bento">
+    <div class="loader__cell"></div>
+    <div class="loader__cell"></div>
+    <div class="loader__cell"></div>
+    <div class="loader__cell"></div>
+    <div class="loader__cell loader__center">
+      <!-- FULCRUM LOGO MARK -->
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--brass)">
+        <path d="M5 24h22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16 22 10 11h12L16 22Z" fill="currentColor"/>
+        <circle cx="6" cy="10" r="2.1" fill="currentColor"/>
+        <circle cx="27" cy="14" r="2.1" fill="currentColor"/>
+        <path d="M6 10 27 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="loader__cell"></div>
+    <div class="loader__cell"></div>
+    <div class="loader__cell"></div>
+    <div class="loader__cell"></div>
+    <div class="loader__cell"></div>
+    <div class="loader__cell"></div>
+  </div>
+  <div class="loader__pct" data-loader-pct>0%</div>
+</div>
+
+<!-- Cursor + scroll progress -->
+<div class="cursor-dot" data-cursor-dot></div>
+<div class="cursor-ring" data-cursor-ring></div>
+<div class="balance-beam" data-balance-beam><div class="balance-beam__fill"></div><div class="balance-beam__pivot"></div></div>
+
+<!-- ============================== NAVIGATION ============================== -->
+<header class="nav" data-nav>
+  <div class="nav__inner">
+    <a href="index.html" class="brand">
+      <span class="brand__mark">
+        <img src="assets/logo/logo.webp" alt="Fulcrum logo">
+      </span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <a href="login.html" class="nav__login hide-mobile">Log in</a>
+      <a href="404.html" class="btn btn-primary btn-sm hide-mobile" data-magnetic="0.3">Start free trial</a>
+      <button class="nav__burger" data-burger aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" data-mobile-menu>
+  <nav class="mobile-menu__links" aria-label="Mobile primary">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="mobile-menu__actions">
+    <a href="login.html" class="btn btn-secondary btn-block">Log in</a>
+    <a href="404.html" class="btn btn-primary btn-block">Start free trial</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============================== 1. HERO ============================== -->
+  <section class="hero" data-hero>
+    <div class="hero__bg"></div>
+    <div class="hero__bg-grid"></div>
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow" data-hero-eyebrow>Operations platform</span>
+        <h1 class="hero__title display" data-split="lines">One platform to balance every moving part of the enterprise.</h1>
+        <p class="body-lg hero__desc" data-hero-desc>Fulcrum unifies workflows, data pipelines and decisions into a single pane of control — so every team pulls in the same direction, without the operational drag.</p>
+        <div class="hero__actions" data-hero-actions>
+          <a href=" 404.html" class="btn btn-primary btn-lg" data-magnetic="0.25">
+            Start free trial
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="404.html" class="btn btn-ghost btn-lg" data-magnetic="0.2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5v14l11-7L8 5Z"/></svg>
+            Watch platform tour
+          </a>
+        </div>
+        <div class="hero__meta" data-hero-meta>
+          <div class="stat"><span class="stat__num mono">99.98%</span><span class="stat__label">Platform uptime</span></div>
+          <div class="stat"><span class="stat__num mono">4.2M</span><span class="stat__label">Workflows run daily</span></div>
+          <div class="stat"><span class="stat__num mono">180+</span><span class="stat__label">Countries in production</span></div>
+        </div>
+      </div>
+
+      <div class="hero__stage" data-hero-stage>
+        <div class="hero__panel hero__panel--main card-float">
+          <div class="panel-row"><span class="panel-dot"></span><span class="panel-dot"></span><span class="panel-dot"></span><span class="text-faint mono" style="font-size:.75rem;margin-left:auto;">command-center</span></div>
+          <div class="hero__panel-chart">
+            <span style="height:34%"></span><span style="height:58%"></span><span style="height:41%"></span>
+            <span style="height:76%"></span><span style="height:52%"></span><span style="height:88%"></span>
+            <span style="height:63%"></span><span style="height:47%"></span><span style="height:70%"></span>
+            <span style="height:39%"></span>
+          </div>
+          <div class="panel-row" style="justify-content:space-between;">
+            <span class="badge badge--teal">Live sync</span>
+            <span class="text-faint mono" style="font-size:.75rem;">02:14:09 uptime</span>
+          </div>
+        </div>
+        <div class="hero__float hero__float--1 card-float glass" data-hero-float data-float>
+          <span class="card-icon" style="width:34px;height:34px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          Approval routed
+        </div>
+        <div class="hero__float hero__float--2 card-float glass" data-hero-float data-float>
+          <span class="card-icon" style="width:34px;height:34px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5"/></svg></span>
+          Workflow synced
+        </div>
+        <div class="hero__float hero__float--3 card-float glass" data-hero-float data-float>
+          <span class="card-icon" style="width:34px;height:34px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/></svg></span>
+          Anomaly resolved
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll-cue">
+      <span>SCROLL</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <!-- ============================== 2. TRUSTED BY ============================== -->
+  <section class="trusted">
+    <div class="container">
+      <p class="eyebrow trusted__label" style="justify-content:center;" data-scramble>TRUSTED BY OPERATIONS TEAMS AT</p>
+    </div>
+    <div class="marquee" data-marquee data-speed="45">
+      <div class="marquee__track">
+        <span class="logo-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg>Northwind Systems</span>
+        <span class="logo-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/></svg>Vantage Rail</span>
+        <span class="logo-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10l8-6 8 6v10"/></svg>Ledger &amp; Co.</span>
+        <span class="logo-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>Solstice Health</span>
+        <span class="logo-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18 12 4l8 14H4Z"/></svg>Anchorpoint</span>
+        <span class="logo-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M12 3v18"/></svg>Kepler Logistics</span>
+        <span class="logo-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Ironbridge Capital</span>
+        <span class="logo-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Meridian Freight</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 3. PRODUCT / PLATFORM OVERVIEW ============================== -->
+  <section class="section platform-bg" id="platform">
+    <div class="container">
+      <div class="bento overview__grid">
+        <div class="overview__lead">
+          <div>
+            <span class="eyebrow">Platform overview</span>
+            <h2 data-split="chars">Three systems. One source of truth.</h2>
+          </div>
+          <p class="body-lg" style="max-width:360px;" data-reveal="fade-up">Data, automation and decisions used to live in different tools. Fulcrum puts them on one spine — so nothing gets lost in translation between teams.</p>
+        </div>
+
+        <div class="bento-2x2 overview__mock card">
+          <div class="overview__mock-header">
+            <span class="badge badge--brass">Live workflow map</span>
+            <span class="text-faint mono" style="font-size:.75rem;">Updated 4s ago</span>
+          </div>
+          <div class="overview__mock-body">
+            <div class="overview__mock-line" style="top:30%;"></div>
+            <div class="overview__mock-line" style="top:65%;"></div>
+            <div class="overview__mock-node" style="top:22%;left:14%;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></div>
+            <div class="overview__mock-node" style="top:55%;left:44%;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5"/></svg></div>
+            <div class="overview__mock-node" style="top:28%;left:76%;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></div>
+          </div>
+        </div>
+
+        <div class="bento-1x1 card card-spotlight overview__stat-card" data-reveal="fade-up">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></span>
+          <span class="stat__num" data-counter="12400" data-counter-suffix="+">0</span>
+          <span class="stat__label">Integrations run every day</span>
+        </div>
+
+        <div class="bento-1x1 card card-spotlight overview__stat-card" data-reveal="fade-up">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.3 6.4L3 16M3 21v-5h5"/></svg></span>
+          <span class="stat__num" data-counter="63" data-counter-suffix="%">0</span>
+          <span class="stat__label">Faster incident resolution</span>
+        </div>
+
+        <div class="bento-2x1 card overview__stat-card" style="flex-direction:row;align-items:center;justify-content:space-between;" data-reveal="fade-up">
+          <div>
+            <h3 style="margin-bottom:.3rem;">Decision layer</h3>
+            <p class="text-muted" style="font-size:var(--fs-sm);max-width:320px;">Every automated action leaves an audit trail your compliance team will actually enjoy reading.</p>
+          </div>
+          <span class="stat__num" data-counter="40" data-counter-suffix="hrs">0</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 4. FEATURES ============================== -->
+  <section class="section section--surface" id="features">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow" style="justify-content:center;">Capabilities</span>
+        <h2 data-split="words">Built for how enterprise actually runs.</h2>
+        <p class="body-lg">Not a suite of disconnected tools — one system that understands how work actually moves through your org.</p>
+      </div>
+
+      <div class="grid features__grid">
+        <div class="feature-card card-spotlight" data-reveal="fade-up" data-reveal-group="features">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="12" r="2.5"/><path d="M6 8.5v7M8.3 6.8 15.8 10.6M8.3 17.2 15.8 13.4"/></svg></span>
+          <h3>Workflow automation</h3>
+          <p>Design multi-step processes visually, then let Fulcrum run them — with retries, escalation and rollback built in.</p>
+        </div>
+        <div class="feature-card card-spotlight" data-reveal="fade-up" data-reveal-group="features">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.3 6.4L3 16M3 21v-5h5"/></svg></span>
+          <h3>Real-time data sync</h3>
+          <p>Connect your systems of record once. Every downstream workflow reads the same live, reconciled data.</p>
+        </div>
+        <div class="feature-card card-spotlight" data-reveal="fade-up" data-reveal-group="features">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/></svg></span>
+          <h3>Access &amp; governance</h3>
+          <p>Role-based permissions, SSO and field-level controls that satisfy security review the first time.</p>
+        </div>
+        <div class="feature-card card-spotlight" data-reveal="fade-up" data-reveal-group="features">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></span>
+          <h3>Predictive alerts</h3>
+          <p>Fulcrum flags process drift before it becomes a bottleneck, with plain-language root-cause hints.</p>
+        </div>
+        <div class="feature-card card-spotlight" data-reveal="fade-up" data-reveal-group="features">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="6" r="2.4"/><path d="M8.3 17 15.7 7M15.7 7h-4M15.7 7v4"/></svg></span>
+          <h3>Approval routing</h3>
+          <p>Dynamic routing sends the right decision to the right person — and nudges it forward if it stalls.</p>
+        </div>
+        <div class="feature-card card-spotlight" data-reveal="fade-up" data-reveal-group="features">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><path d="M6 6h12v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6Z"/><path d="m9 13 2 2 4-4"/></svg></span>
+          <h3>Full audit trail</h3>
+          <p>Every action, every actor, every timestamp — exportable in one click for your next audit cycle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 5. TIMELINE ============================== -->
+  <section class="section" id="rollout">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Implementation</span>
+        <h2 data-split="words">From kickoff to company-wide rollout.</h2>
+        <p class="body-lg">No six-month implementation cycle. Most teams are running live workflows inside the first month.</p>
+      </div>
+
+      <div class="timeline__track" data-timeline-track>
+        <div class="timeline__line"><div class="timeline__line-fill"></div></div>
+
+        <div class="timeline__item">
+          <span class="timeline__dot"></span>
+          <span class="timeline__year">Week 1</span>
+          <h3>Discovery &amp; mapping</h3>
+          <p>Our solutions team maps your highest-friction processes and identifies quick wins for the pilot.</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__dot"></span>
+          <span class="timeline__year">Week 2–3</span>
+          <h3>Systems integration</h3>
+          <p>Connect source systems through pre-built connectors or the open API — no custom middleware required.</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__dot"></span>
+          <span class="timeline__year">Week 4</span>
+          <h3>Pilot team goes live</h3>
+          <p>A single team runs real workflows in Fulcrum while legacy tools stay on standby as a safety net.</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__dot"></span>
+          <span class="timeline__year">Week 6</span>
+          <h3>Company-wide rollout</h3>
+          <p>With the pilot validated, we scale configuration and training across every remaining team.</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__dot"></span>
+          <span class="timeline__year">Ongoing</span>
+          <h3>Continuous optimization</h3>
+          <p>Your dedicated success manager reviews workflow health quarterly and tunes what's slowing you down.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 6. SERVICES ============================== -->
+  <section class="section section--surface" id="services-preview">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow" style="justify-content:center;">Services</span>
+        <h2 data-split="words">Support built around your rollout.</h2>
+        <p class="body-lg">Flip each card for what's included. Every plan comes with a named team, not a ticket queue.</p>
+      </div>
+
+      <div class="grid services__grid">
+        <div class="flip-card" data-reveal="fade-up" data-reveal-group="services-flip">
+          <div class="flip-card__inner">
+            <div class="flip-card__face flip-card__face--front">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></span>
+              <h3>Implementation</h3>
+              <p class="text-muted" style="font-size:var(--fs-sm);">Hands-on setup from kickoff to first live workflow.</p>
+              <span class="flip-hint">FLIP FOR DETAILS →</span>
+            </div>
+            <div class="flip-card__face flip-card__face--back">
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Dedicated implementation lead</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Source system integration</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Workflow migration from legacy tools</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" data-reveal="fade-up" data-reveal-group="services-flip">
+          <div class="flip-card__inner">
+            <div class="flip-card__face flip-card__face--front">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+              <h3>Managed operations</h3>
+              <p class="text-muted" style="font-size:var(--fs-sm);">We monitor and tune workflows so you don't have to.</p>
+              <span class="flip-hint">FLIP FOR DETAILS →</span>
+            </div>
+            <div class="flip-card__face flip-card__face--back">
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>24/7 workflow health monitoring</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Proactive drift correction</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Monthly performance reviews</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" data-reveal="fade-up" data-reveal-group="services-flip">
+          <div class="flip-card__inner">
+            <div class="flip-card__face flip-card__face--front">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14a5.2 5.2 0 0 1 5.5 6"/></svg></span>
+              <h3>Training &amp; enablement</h3>
+              <p class="text-muted" style="font-size:var(--fs-sm);">Live sessions and self-serve courses for every role.</p>
+              <span class="flip-hint">FLIP FOR DETAILS →</span>
+            </div>
+            <div class="flip-card__face flip-card__face--back">
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Role-based certification paths</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Live admin workshops</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Searchable knowledge base</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" data-reveal="fade-up" data-reveal-group="services-flip">
+          <div class="flip-card__inner">
+            <div class="flip-card__face flip-card__face--front">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/></svg></span>
+              <h3>Dedicated success manager</h3>
+              <p class="text-muted" style="font-size:var(--fs-sm);">One named point of contact, not a rotating queue.</p>
+              <span class="flip-hint">FLIP FOR DETAILS →</span>
+            </div>
+            <div class="flip-card__face flip-card__face--back">
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Quarterly business reviews</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Renewal &amp; expansion planning</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Direct Slack channel</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" data-reveal="fade-up" data-reveal-group="services-flip">
+          <div class="flip-card__inner">
+            <div class="flip-card__face flip-card__face--front">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg></span>
+              <h3>Custom integrations</h3>
+              <p class="text-muted" style="font-size:var(--fs-sm);">For the systems that don't fit the standard connector.</p>
+              <span class="flip-hint">FLIP FOR DETAILS →</span>
+            </div>
+            <div class="flip-card__face flip-card__face--back">
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Custom connector development</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Legacy &amp; on-prem system support</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Ongoing connector maintenance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" data-reveal="fade-up" data-reveal-group="services-flip">
+          <div class="flip-card__inner">
+            <div class="flip-card__face flip-card__face--front">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></span>
+              <h3>24/7 incident response</h3>
+              <p class="text-muted" style="font-size:var(--fs-sm);">Real engineers on call when a critical workflow breaks.</p>
+              <span class="flip-hint">FLIP FOR DETAILS →</span>
+            </div>
+            <div class="flip-card__face flip-card__face--back">
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>15-minute critical response SLA</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Dedicated incident channel</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Post-incident root cause report</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 7. HORIZONTAL SCROLL ============================== -->
+  <section class="hscroll" data-hscroll id="console">
+    <div class="hscroll__head">
+      <span class="eyebrow">Inside the platform</span>
+      <h2 data-reveal="blur">A closer look at the console.</h2>
+    </div>
+    <div class="hscroll__pin">
+      <div class="hscroll__track" data-hscroll-track>
+        <div class="hscroll-card">
+          <span class="hscroll-card__num mono">01 / 05</span>
+          <div class="hscroll-card__visual"><img src="assets/images/webp15.webp" alt="Command center preview" loading="lazy"></div>
+          <h3>Command center</h3>
+          <p>A single live view of every workflow in flight, with status, owner and SLA at a glance.</p>
+        </div>
+        <div class="hscroll-card">
+          <span class="hscroll-card__num mono">02 / 05</span>
+          <div class="hscroll-card__visual"><img src="assets/images/webp16.webp" alt="Workflow builder preview" loading="lazy"></div>
+          <h3>Workflow builder</h3>
+          <p>Drag-and-drop process design with branching logic, approvals and retries — no code required.</p>
+        </div>
+        <div class="hscroll-card">
+          <span class="hscroll-card__num mono">03 / 05</span>
+          <div class="hscroll-card__visual"><img src="assets/images/webp17.webp" alt="Data pipelines preview" loading="lazy"></div>
+          <h3>Data pipelines</h3>
+          <p>Reconcile records across every connected system in real time, with conflict rules you control.</p>
+        </div>
+        <div class="hscroll-card">
+          <span class="hscroll-card__num mono">04 / 05</span>
+          <div class="hscroll-card__visual"><img src="assets/images/webp18.webp" alt="Access controls preview" loading="lazy"></div>
+          <h3>Access controls</h3>
+          <p>Field-level permissions and full SSO — configured once, enforced everywhere automatically.</p>
+        </div>
+        <div class="hscroll-card">
+          <span class="hscroll-card__num mono">05 / 05</span>
+          <div class="hscroll-card__visual"><img src="assets/images/webp19.webp" alt="Insights and reporting preview" loading="lazy"></div>
+          <h3>Insights &amp; reporting</h3>
+          <p>Board-ready dashboards built from the same live data your teams work from every day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 8. ENTERPRISE SOLUTIONS ============================== -->
+  <section class="section section--surface solutions" id="solutions">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Solutions by industry</span>
+        <h2 data-reveal="tracking">Wherever operations get complicated.</h2>
+      </div>
+
+      <div class="solutions__layout">
+        <div class="solutions__sticky">
+          <div class="solutions__list">
+            <div class="solutions__item" data-solution-item>
+              <div class="solutions__item-head"><span class="idx mono">01</span><h3>Financial services</h3></div>
+              <div class="solutions__item-body"><p>Reconcile transactions and route approvals across trading, risk and compliance without leaving an audit gap.</p></div>
+            </div>
+            <div class="solutions__item" data-solution-item>
+              <div class="solutions__item-head"><span class="idx mono">02</span><h3>Healthcare systems</h3></div>
+              <div class="solutions__item-body"><p>Coordinate intake, authorization and care workflows across departments while staying HIPAA-aligned by design.</p></div>
+            </div>
+            <div class="solutions__item" data-solution-item>
+              <div class="solutions__item-head"><span class="idx mono">03</span><h3>Logistics &amp; supply chain</h3></div>
+              <div class="solutions__item-body"><p>Track shipments and exceptions across carriers and warehouses in one live operational picture.</p></div>
+            </div>
+            <div class="solutions__item" data-solution-item>
+              <div class="solutions__item-head"><span class="idx mono">04</span><h3>Public sector</h3></div>
+              <div class="solutions__item-body"><p>Modernize case management and citizen services with the governance controls procurement requires.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="solutions__visual">
+          <div class="solutions__visual-panel is-active" data-solution-panel>
+            <span class="badge badge--brass">Financial services</span>
+            <h4>Trade reconciliation queue</h4>
+            <div class="tag-row"><span class="badge">FX Desk</span><span class="badge">Risk Review</span><span class="badge">Compliance</span></div>
+            <div class="overview__mock-body" style="flex:1;">
+              <img src="assets/images/webp4.webp" alt="Trade reconciliation dashboard" loading="lazy">
+            </div>
+          </div>
+          <div class="solutions__visual-panel" data-solution-panel>
+            <span class="badge badge--teal">Healthcare systems</span>
+            <h4>Patient intake pipeline</h4>
+            <div class="tag-row"><span class="badge">Intake</span><span class="badge">Authorization</span><span class="badge">Care team</span></div>
+            <div class="overview__mock-body" style="flex:1;">
+              <img src="assets/images/webp7.webp" alt="Patient intake dashboard" loading="lazy">
+            </div>
+          </div>
+          <div class="solutions__visual-panel" data-solution-panel>
+            <span class="badge badge--brass">Logistics</span>
+            <h4>Shipment exception board</h4>
+            <div class="tag-row"><span class="badge">Carriers</span><span class="badge">Warehouses</span><span class="badge">Exceptions</span></div>
+            <div class="overview__mock-body" style="flex:1;">
+              <img src="assets/images/webp1.webp" alt="Shipment tracking board" loading="lazy">
+            </div>
+          </div>
+          <div class="solutions__visual-panel" data-solution-panel>
+            <span class="badge badge--teal">Public sector</span>
+            <h4>Case management console</h4>
+            <div class="tag-row"><span class="badge">Intake</span><span class="badge">Review</span><span class="badge">Resolution</span></div>
+            <div class="overview__mock-body" style="flex:1;">
+              <img src="assets/images/webp10.webp" alt="Case management console" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 9. TESTIMONIALS / RESULTS ============================== -->
+  <section class="section" id="results">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow" style="justify-content:center;">Results</span>
+        <h2 data-split="words">Teams run leaner with Fulcrum.</h2>
+      </div>
+
+      <div class="grid testi__grid">
+        <div class="card testi-card" data-reveal="fade-up" data-reveal-group="testi">
+          <p class="testi-card__quote">"We collapsed four disconnected tools into one queue. Our ops team finally trusts the data they're looking at."</p>
+          <div class="testi-card__person">
+            <span class="testi-card__avatar"><img src="assets/images/webp7.webp" alt="" loading="lazy"></span>
+            <div><div class="testi-card__name">Rina Mehta</div><div class="testi-card__role">VP Operations, Northwind Systems</div></div>
+          </div>
+        </div>
+        <div class="card testi-card" data-reveal="fade-up" data-reveal-group="testi">
+          <p class="testi-card__quote">"Approval cycles that took four days now close same-afternoon. That alone paid for the platform."</p>
+          <div class="testi-card__person">
+            <span class="testi-card__avatar"><img src="assets/images/webp8.webp" alt="" loading="lazy"></span>
+            <div><div class="testi-card__name">David Kao</div><div class="testi-card__role">Director of IT, Solstice Health</div></div>
+          </div>
+        </div>
+        <div class="card testi-card" data-reveal="fade-up" data-reveal-group="testi">
+          <p class="testi-card__quote">"Rollout took six weeks, not six months. Support actually knows our account by name."</p>
+          <div class="testi-card__person">
+            <span class="testi-card__avatar"><img src="assets/images/webp9.webp" alt="" loading="lazy"></span>
+            <div><div class="testi-card__name">Amara Lindqvist</div><div class="testi-card__role">COO, Kepler Logistics</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid results-strip">
+        <div class="stat text-center"><span class="stat__num" data-counter="38" data-counter-suffix="%">0</span><span class="stat__label">Fewer manual tickets</span></div>
+        <div class="stat text-center"><span class="stat__num" data-counter="2.1" data-counter-suffix="x">0</span><span class="stat__label">Faster approvals</span></div>
+        <div class="stat text-center"><span class="stat__num" data-counter="99.98" data-counter-suffix="%">0</span><span class="stat__label">Platform uptime</span></div>
+        <div class="stat text-center"><span class="stat__num" data-counter="6" data-counter-suffix="wk">0</span><span class="stat__label">Avg. time-to-value</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 10. CTA ============================== -->
+  <section class="section-tight">
+    <div class="cta" data-reveal="fade-up">
+      <div class="cta__bg"></div>
+      <div class="cta__content">
+        <span class="eyebrow" style="justify-content:center;">Get started</span>
+        <h2 data-reveal="scale-type">Ready to find your balance?</h2>
+        <p class="body-lg">Start a free trial or talk to our team about what a rollout would look like for your organization.</p>
+        <div class="cta__actions">
+          <a href="create-account.html" class="btn btn-primary btn-lg" data-magnetic="0.25">Start free trial</a>
+          <a href="contact.html" class="btn btn-secondary btn-lg" data-magnetic="0.25">Talk to sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer">
+  <div class="footer__glow"></div>
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="brand">
+          <span class="brand__mark">
+            <img src="assets/logo/logo.webp" alt="Fulcrum logo">
+          </span>
+        </a>
+        <p>The pivot point for enterprise operations — workflows, data and decisions on one platform.</p>
+        <div class="footer__social">
+          <a href="404.html" aria-label="Fulcrum on X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4 4 16 16M20 4 4 20"/></svg></a>
+          <a href="404.html" aria-label="Fulcrum on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-5M12 11c1.5-1.5 4-1.5 4 1v4"/></svg></a>
+          <a href="404.html" aria-label="Fulcrum on GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+          <a href="404.html" aria-label="Fulcrum on YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="m10 9 5 3-5 3V9Z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Implementation</a></li>
+          <li><a href="services.html">Managed operations</a></li>
+          <li><a href="services.html">Training &amp; enablement</a></li>
+          <li><a href="services.html">Custom integrations</a></li>
+          <li><a href="services.html">Incident response</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="login.html">Log in</a></li>
+          <li><a href="create-account.html">Create account</a></li>
+          <li><a href="contact.html">Contact support</a></li>
+          <li><a href="404.html">Privacy policy</a></li>
+          <li><a href="404.html">Terms &amp; conditions</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__marquee" data-footer-marquee>
+    <div class="footer__marquee-track">
+      <span>Stackly <svg viewBox="0 0 24 24"><path d="M12 4 6 18h12L12 4Z"/></svg></span>
+      <span>Enterprice <svg viewBox="0 0 24 24"><path d="M12 4 6 18h12L12 4Z"/></svg></span>
+      <span>Stackly <svg viewBox="0 0 24 24"><path d="M12 4 6 18h12L12 4Z"/></svg></span>
+      <span>Enterprice <svg viewBox="0 0 24 24"><path d="M12 4 6 18h12L12 4Z"/></svg></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="footer__bottom">
+      <span>© 2026 Fulcrum Technologies, Inc. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="404.html">Privacy Policy</a>
+        <a href="404.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>

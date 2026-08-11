@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account — Fulcrum</title>
+<meta name="description" content="Create your Fulcrum account and start a free trial.">
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<div class="loader" data-loader aria-hidden="true">
+  <div class="loader__bento">
+    <div class="loader__cell"></div><div class="loader__cell"></div><div class="loader__cell"></div><div class="loader__cell"></div>
+    <div class="loader__cell loader__center">
+      <!-- FULCRUM LOGO MARK -->
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--brass)">
+        <path d="M5 24h22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16 22 10 11h12L16 22Z" fill="currentColor"/>
+        <circle cx="6" cy="10" r="2.1" fill="currentColor"/><circle cx="27" cy="14" r="2.1" fill="currentColor"/>
+        <path d="M6 10 27 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="loader__cell"></div><div class="loader__cell"></div>
+    <div class="loader__cell"></div><div class="loader__cell"></div><div class="loader__cell"></div><div class="loader__cell"></div>
+  </div>
+  <div class="loader__pct" data-loader-pct>0%</div>
+</div>
+
+<div class="cursor-dot" data-cursor-dot></div>
+<div class="cursor-ring" data-cursor-ring></div>
+
+<main id="main">
+  <div class="auth-shell">
+
+    <div class="auth-visual hide-mobile">
+      <div class="auth-visual__bg"></div>
+      <div class="auth-visual__grid"></div>
+      <div class="auth-visual__content">
+        <a href="index.html" class="brand">
+          <span class="brand__mark">
+            <img src="assets/logo/logo.webp" alt="Fulcrum logo">
+          </span>
+        </a>
+        <div class="auth-visual__info">
+          <span class="eyebrow">Get started</span>
+          <h2>Launch your team with a secure workflow hub.</h2>
+          <p class="auth-visual__copy">Your account includes access to prebuilt rollout templates, priority onboarding, and the same governance controls our largest customers rely on.</p>
+          <ul class="auth-visual__list">
+            <li>Quick-start templates for operations teams.</li>
+            <li>Governance and audit logging from day one.</li>
+            <li>Dedicated onboarding support available.</li>
+          </ul>
+          <div class="auth-visual__highlights">
+            <div>
+              <strong>14</strong>
+              <span>day free trial</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>support access</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <blockquote class="auth-visual__quote">
+        <p>"Rollout took six weeks, not six months. Support actually knows our account by name."</p>
+        <div class="auth-visual__quote-person">
+          <span class="testi-card__avatar" style="width:36px;height:36px;font-size:.8rem;">AL</span>
+          <span>Amara Lindqvist — COO, Kepler Logistics</span>
+        </div>
+      </blockquote>
+    </div>
+
+    <div class="auth-panel">
+      <div class="auth-card" data-create-wrap>
+        <a href="index.html" class="brand hide-desktop" style="margin-bottom:2rem;">
+          <span class="brand__mark">
+            <img src="assets/logo/logo.webp" alt="Fulcrum logo">
+          </span>
+        </a>
+
+        <div class="auth-card__head">
+          <h1>Create your account</h1>
+          <p>Start a 14-day free trial. No credit card required.</p>
+        </div>
+
+        <div class="form-alert" data-form-alert hidden role="alert"></div>
+
+        <form data-create-form novalidate>
+          <div class="field-row">
+            <div class="field" data-field>
+              <label for="caFirstName">First name</label>
+              <input class="input" type="text" id="caFirstName" name="firstName" placeholder="Jordan" data-validate="name" required autocomplete="given-name">
+              <p class="field-msg" data-field-msg>Please use letters only.</p>
+            </div>
+            <div class="field" data-field>
+              <label for="caLastName">Last name</label>
+              <input class="input" type="text" id="caLastName" name="lastName" placeholder="Avery" data-validate="name" required autocomplete="family-name">
+              <p class="field-msg" data-field-msg>Please use letters only.</p>
+            </div>
+          </div>
+
+          <div class="field" data-field>
+            <label for="caEmail">Work email</label>
+            <input class="input" type="email" id="caEmail" name="email" placeholder="you@company.com" data-validate="email" required autocomplete="email">
+            <p class="field-msg" data-field-msg>Please enter a valid email address.</p>
+          </div>
+
+          <div class="field" data-field>
+            <label for="caPassword">Password</label>
+            <div class="password-wrap">
+              <input class="input" type="password" id="caPassword" name="password" placeholder="At least 8 characters" data-validate="password" data-confirm-target="#caConfirmPassword" required autocomplete="new-password">
+              <button type="button" class="password-toggle" data-password-toggle="#caPassword" aria-label="Show password">
+                <svg class="icon-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="icon-hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3l18 18M10.6 10.6a3 3 0 0 0 4.2 4.2M6.6 6.7C4 8.3 2 12 2 12s4 7 11 7c1.7 0 3.2-.4 4.5-1M17.9 17.9C20.3 16.2 22 12 22 12s-1.6-2.8-4.3-4.8"/></svg>
+              </button>
+            </div>
+            <div class="password-strength" data-password-strength data-level="0"><span></span><span></span><span></span></div>
+            <p class="field-msg" data-field-msg>Password must be at least 8 characters.</p>
+          </div>
+
+          <div class="field" data-field>
+            <label for="caConfirmPassword">Confirm password</label>
+            <div class="password-wrap">
+              <input class="input" type="password" id="caConfirmPassword" name="confirmPassword" placeholder="Re-enter your password" data-validate="password-confirm" data-match="#caPassword" required autocomplete="new-password">
+              <button type="button" class="password-toggle" data-password-toggle="#caConfirmPassword" aria-label="Show password">
+                <svg class="icon-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="icon-hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3l18 18M10.6 10.6a3 3 0 0 0 4.2 4.2M6.6 6.7C4 8.3 2 12 2 12s4 7 11 7c1.7 0 3.2-.4 4.5-1M17.9 17.9C20.3 16.2 22 12 22 12s-1.6-2.8-4.3-4.8"/></svg>
+              </button>
+            </div>
+            <p class="field-msg" data-field-msg>Passwords don't match.</p>
+          </div>
+
+          <div class="field" data-field>
+            <label class="checkbox-row">
+              <input type="checkbox" id="terms" name="terms" data-validate="checkbox" required>
+              <span>I agree to the <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.</span>
+            </label>
+            <p class="field-msg" data-field-msg>Please accept the terms to continue.</p>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Create account</button>
+        </form>
+
+        <p class="auth-foot">Already have an account? <a href="login.html">Log in</a></p>
+      </div>
+
+      <div class="auth-card" data-create-success hidden>
+        <div class="success-state" style="padding-block:1rem;">
+          <div class="success-state__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h1>You're all set</h1>
+          <p class="text-muted" style="margin-bottom:2rem;">Your account has been created. Jump into your dashboard to start your first workflow.</p>
+          <a href="dashboard.html" data-go-dashboard class="btn btn-primary btn-lg btn-block">Go to dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

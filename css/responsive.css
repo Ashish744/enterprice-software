@@ -1,0 +1,93 @@
+/* ==========================================================================
+   RESPONSIVE
+   Breakpoints: 1200 (laptop) / 960 (tablet) / 680 (mobile)
+   ========================================================================== */
+
+/* -------------------------------- Laptop / 1200px -------------------------------- */
+@media (max-width: 1200px){
+  .bento{ grid-template-columns: repeat(2, 1fr); }
+  .bento-4x1{ grid-column: span 2; }
+  .bento-3x1{ grid-column: span 2; }
+  .overview__grid{ grid-template-columns: repeat(2, 1fr); }
+  .overview__lead{ grid-column: span 2; }
+  .overview__mock{ grid-column: span 2; grid-row: span 1; height: 320px; }
+  .features__grid, .services__grid, .testi__grid, .mission-grid, .blog-grid, .dash-bento{ grid-template-columns: repeat(2, 1fr); }
+  .services-process{ grid-template-columns: repeat(2, 1fr); }
+  .solutions__layout{ grid-template-columns: 1fr; }
+  .solutions__sticky{ position: static; }
+  .kpi-grid{ grid-template-columns: repeat(2, 1fr); }
+  .quick-actions{ grid-template-columns: repeat(2, 1fr); }
+  .results-strip{ grid-template-columns: repeat(2, 1fr); row-gap: var(--space-lg); }
+  .about-stats{ grid-template-columns: repeat(2, 1fr); row-gap: var(--space-lg); }
+}
+
+/* -------------------------------- Tablet / 960px -------------------------------- */
+@media (max-width: 960px){
+  .hide-mobile{ display: none !important; }
+  .hide-desktop{ display: initial !important; }
+
+  .nav__links, .nav__actions .btn-secondary, .nav__login{ display: none; }
+  .nav__burger{ display: flex; }
+
+  .hero__inner{ grid-template-columns: 1fr; }
+  .hero__stage{ height: 420px; order: -1; }
+  .hero__desc{ max-width: 100%; }
+
+  .footer__top{ grid-template-columns: 1fr 1fr; }
+  .footer__brand{ grid-column: span 2; }
+
+  .contact-layout, .auth-shell, .blog-featured{ grid-template-columns: 1fr; }
+  .auth-visual{ display: none; }
+  .service-row{ grid-template-columns: 1fr; gap: var(--space-sm); }
+  .service-row__num{ display: none; }
+
+  .dash-sidebar{ transform: translateX(-100%); transition: transform var(--dur-med) var(--ease-premium); z-index: var(--z-mobile-menu); }
+  .dash-sidebar.is-open{ transform: translateX(0); box-shadow: var(--shadow-lg); }
+  .dash-sidebar-backdrop{
+    position: fixed; inset: 0; background: rgba(0,0,0,.55);
+    z-index: calc(var(--z-mobile-menu) - 1);
+    opacity: 0; pointer-events: none; transition: opacity var(--dur-med) var(--ease-premium);
+  }
+  .dash-sidebar-backdrop.is-visible{ opacity: 1; pointer-events: auto; }
+  .dash-shell{ grid-template-columns: 1fr; }
+  .dash-main{ grid-column: 1; padding-inline: var(--space-md); }
+  .dash-nav__left{ width: auto; }
+  .dash-menu-btn{
+    display: flex; width: 38px; height: 38px; border-radius: 50%;
+    align-items: center; justify-content: center; border: 1px solid var(--border-strong);
+  }
+  .dash-menu-btn svg{ width: 17px; height: 17px; }
+  .dash-search{ max-width: none; }
+  .dash-profile__meta{ display: none; }
+}
+
+/* -------------------------------- Mobile / 680px -------------------------------- */
+@media (max-width: 680px){
+  :root{ --gutter: 1.25rem; }
+  .section{ padding-block: clamp(3rem, 8vw, 5rem); }
+
+  .field-row{ grid-template-columns: 1fr; }
+  .footer__top{ grid-template-columns: 1fr; gap: var(--space-lg); }
+  .footer__brand{ grid-column: span 1; }
+  .footer__bottom{ flex-direction: column; align-items: flex-start; }
+
+  .bento{ grid-template-columns: 1fr; }
+  .bento-2x2, .bento-2x1, .bento-1x2, .bento-3x1, .bento-4x1{ grid-column: span 1; grid-row: span 1; }
+  .overview__grid{ grid-template-columns: 1fr; }
+  .overview__lead{ grid-column: span 1; grid-template-columns: 1fr; gap: var(--space-md); }
+  .overview__mock{ grid-column: span 1; }
+
+  .features__grid, .services__grid, .testi__grid, .mission-grid, .values-grid, .blog-grid, .dash-bento, .services-process, .kpi-grid, .about-stats, .results-strip, .quick-actions{ grid-template-columns: 1fr !important; }
+
+  .hscroll-card{ flex-basis: 82vw; }
+
+  .cta{ margin: 0 auto; padding: var(--space-xl) var(--space-md); }
+
+  .error-page__code{ font-size: clamp(4.5rem, 3rem + 16vw, 8rem); }
+
+  .dash-tabs{ overflow-x: auto; }
+  .welcome-banner{ flex-direction: column; align-items: flex-start; }
+
+  .timeline__track{ padding-left: 0; }
+  .timeline__item{ padding-left: 54px; }
+}

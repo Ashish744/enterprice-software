@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard — Fulcrum</title>
+<meta name="description" content="Your Fulcrum workspace — workflows, tasks and account activity.">
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dashboard-body">
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ============================== DASHBOARD NAVBAR ==============================
+     Per spec: ONLY logo (left) + profile (right). No marketing nav links here. -->
+<header class="dash-nav">
+  <div class="dash-nav__left">
+    <button class="dash-menu-btn" data-sidebar-toggle aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <a href="dashboard.html" class="brand">
+      <span class="brand__mark">
+        <img src="assets/logo/logo.webp" alt="Fulcrum logo">
+      </span>
+    </a>
+  </div>
+
+  <div class="dash-nav__right">
+    <div class="dash-profile" data-profile-menu>
+      <button data-profile-trigger aria-haspopup="true" aria-expanded="false" style="display:flex;align-items:center;gap:.65rem;">
+        <span class="dash-profile__avatar">JA</span>
+        <span class="dash-profile__meta">
+          <span class="dash-profile__name" style="display:block;">Jordan Avery</span>
+          <span class="dash-profile__role">Operations Analyst</span>
+        </span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="dash-profile__menu">
+        <div style="padding:.7rem .9rem .8rem;border-bottom:1px solid var(--border);margin-bottom:.4rem;">
+          <div style="font-size:.68rem;color:var(--text-faint);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;">Signed in as</div>
+          <div style="font-size:.85rem;font-weight:600;word-break:break-all;" data-profile-email>jordan.avery@fulcrum.example</div>
+        </div>
+        <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>My profile</a>
+        <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>Settings</a>
+        <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4M12 17h.01"/></svg>Help &amp; support</a>
+        <hr>
+        <a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>Back to website</a>
+        <a href="login.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Log out</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="dash-shell">
+  <div class="dash-sidebar-backdrop" data-sidebar-backdrop></div>
+  <!-- ============================== SIDEBAR (internal nav only) ============================== -->
+  <aside class="dash-sidebar" data-sidebar>
+    <div class="dash-search" style="margin-bottom:1.25rem;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" placeholder="Search…" aria-label="Search your workflows and tasks">
+    </div>
+    <div class="dash-sidebar__section">
+      <span class="dash-sidebar__label">Workspace</span>
+      <a href="404.html" class="dash-sidebar__link is-active" data-panel="overview" data-panel-label="Overview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+        Overview
+      </a>
+      <a href="404.html" class="dash-sidebar__link" data-panel="workflows" data-panel-label="My workflows">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg>
+        My workflows
+      </a>
+      <a href="404.html" class="dash-sidebar__link" data-panel="tasks" data-panel-label="Tasks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><path d="M6 6h12v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6Z"/><path d="m9 13 2 2 4-4"/></svg>
+        Tasks
+        <span class="dash-sidebar__badge">5</span>
+      </a>
+      <a href="404.html" class="dash-sidebar__link" data-panel="reports" data-panel-label="Reports">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
+        Reports
+      </a>
+    </div>
+    <div class="dash-sidebar__section">
+      <span class="dash-sidebar__label">Account</span>
+      <a href="404.html" class="dash-sidebar__link" data-panel="profile" data-panel-label="My profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        Profile
+      </a>
+      <a href="404.html" class="dash-sidebar__link" data-panel="settings" data-panel-label="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+        Settings
+      </a>
+      <a href="404.html" class="dash-sidebar__link" data-panel="help" data-panel-label="Help &amp; support">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4M12 17h.01"/></svg>
+        Help &amp; support
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============================== MAIN CONTENT ============================== -->
+  <main class="dash-main" id="main">
+
+    <div data-panel-content="overview">
+    <div class="welcome-banner">
+      <div>
+        <span class="eyebrow">Your workspace</span>
+        <h1 style="margin-top:.4rem;">Welcome back, <span data-welcome-name>Jordan</span>.</h1>
+        <p class="text-muted">You have 5 tasks due this week and 2 approvals waiting on you.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:.6rem;">
+        <div class="relative" data-notif-menu>
+          <button class="dash-icon-btn" data-notif-trigger aria-haspopup="true" aria-expanded="false" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+            <span class="dot"></span>
+          </button>
+          <div class="dash-profile__menu" style="width:300px;">
+            <div style="padding:.5rem .6rem;font-size:.8rem;color:var(--text-faint);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;">Notifications</div>
+            <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Your expense approval was accepted</a>
+            <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>Priya assigned you a new task</a>
+            <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Vendor onboarding due tomorrow</a>
+          </div>
+        </div>
+        <a href="404.html" class="btn btn-primary hide-mobile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          New workflow
+        </a>
+      </div>
+    </div>
+
+    <!-- Personal stats -->
+    <div class="grid kpi-grid">
+      <div class="card kpi-card">
+        <div class="kpi-card__top"><span class="kpi-card__label">Workflows completed</span></div>
+        <span class="kpi-card__value" data-counter="128">0</span>
+        <div class="kpi-card__spark"><span data-height="40"></span><span data-height="55"></span><span data-height="60"></span><span data-height="48"></span><span data-height="70"></span><span data-height="62"></span><span data-height="85"></span></div>
+      </div>
+      <div class="card kpi-card">
+        <div class="kpi-card__top"><span class="kpi-card__label">Pending approvals</span></div>
+        <span class="kpi-card__value" data-counter="2">0</span>
+        <div class="kpi-card__spark"><span data-height="30"></span><span data-height="35"></span><span data-height="20"></span><span data-height="40"></span><span data-height="25"></span><span data-height="45"></span><span data-height="30"></span></div>
+      </div>
+      <div class="card kpi-card">
+        <div class="kpi-card__top"><span class="kpi-card__label">Avg. turnaround</span></div>
+        <span class="kpi-card__value"><span data-counter="3.2" data-counter-suffix="hr">0</span></span>
+        <div class="kpi-card__spark"><span data-height="60"></span><span data-height="50"></span><span data-height="45"></span><span data-height="55"></span><span data-height="40"></span><span data-height="35"></span><span data-height="30"></span></div>
+      </div>
+      <div class="card kpi-card">
+        <div class="kpi-card__top"><span class="kpi-card__label">Tasks due this week</span></div>
+        <span class="kpi-card__value" data-counter="5">0</span>
+        <div class="kpi-card__spark"><span data-height="50"></span><span data-height="60"></span><span data-height="55"></span><span data-height="65"></span><span data-height="45"></span><span data-height="70"></span><span data-height="58"></span></div>
+      </div>
+    </div>
+
+    <div class="grid dash-bento">
+      <!-- Onboarding progress -->
+      <div class="card dash-panel">
+        <div class="dash-panel__head"><h3>Getting set up</h3><span class="dash-panel__more">3 / 5 done</span></div>
+        <div class="progress-card__bar"><div class="progress-card__fill" style="width:60%;" data-reveal="fade-up"></div></div>
+        <ul style="display:flex;flex-direction:column;gap:.6rem;margin-top:1rem;">
+          <li style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-muted);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Connect your first system</li>
+          <li style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-muted);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Build your first workflow</li>
+          <li style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-muted);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Invite a teammate</li>
+          <li style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-faint);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>Set up approvals</li>
+          <li style="display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:var(--text-faint);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>Connect notifications</li>
+        </ul>
+      </div>
+
+      <!-- Recent activity -->
+      <div class="card dash-panel">
+        <div class="dash-panel__head"><h3>Recent updates</h3></div>
+        <div class="activity-feed">
+          <div class="activity-item">
+            <span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div class="activity-body"><p>Your expense report <strong>#EX-2214</strong> was approved</p><time>2 hr ago</time></div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></span>
+            <div class="activity-body"><p><strong>Priya Nair</strong> assigned you a review task</p><time>Yesterday</time></div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5"/></svg></span>
+            <div class="activity-body"><p>Vendor onboarding workflow synced with Workday</p><time>2 days ago</time></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div class="card dash-panel">
+        <div class="dash-panel__head"><h3>Quick actions</h3></div>
+        <div class="quick-actions" style="grid-template-columns:repeat(2,1fr);">
+          <a href="#" class="quick-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg>
+            New task
+          </a>
+          <a href="404.html" class="quick-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><path d="M6 6h12v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6Z"/></svg>
+            View reports
+          </a>
+          <a href="404.html" class="quick-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+            Invite teammate
+          </a>
+          <a href="404.html" class="quick-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4M12 17h.01"/></svg>
+            Get help
+          </a>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    <!-- /overview panel -->
+
+    <!-- ============================== MY WORKFLOWS PANEL ============================== -->
+    <div data-panel-content="workflows" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Workspace</span>
+          <h1 style="margin-top:.4rem;">My workflows</h1>
+          <p>Everything you're currently driving or waiting on.</p>
+        </div>
+        <div class="dash-head__actions">
+          <a href="404.html" class="btn btn-primary btn-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            New workflow
+          </a>
+        </div>
+      </div>
+
+      <div class="card dash-panel">
+        <div style="display:flex;flex-direction:column;gap:.7rem;">
+
+          <div class="expand-card is-open">
+            <button class="expand-card__head">
+              <div class="table-user"><span class="table-avatar" style="background:var(--brass-dim);color:var(--brass);">VO</span><div><h3 style="font-size:1rem;">Vendor onboarding — Acme Supplies</h3><span class="text-faint" style="font-size:.78rem;">Step 3 of 5 · Due Aug 12</span></div></div>
+              <span class="expand-card__plus" aria-hidden="true"></span>
+            </button>
+            <div class="expand-card__body" style="max-height:200px;">
+              <div class="expand-card__body-inner">
+                <p style="margin-bottom:.8rem;">Waiting on procurement sign-off before the vendor is added to the approved supplier list.</p>
+                <div class="progress-card__bar" style="margin:0 0 .8rem;"><div class="progress-card__fill" style="width:60%;"></div></div>
+                <a href="#" class="btn btn-secondary btn-sm">Open workflow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-card__head">
+              <div class="table-user"><span class="table-avatar" style="background:var(--teal-dim);color:var(--teal);">EX</span><div><h3 style="font-size:1rem;">Expense reconciliation — July</h3><span class="text-faint" style="font-size:.78rem;">Step 5 of 5 · Completed</span></div></div>
+              <span class="expand-card__plus" aria-hidden="true"></span>
+            </button>
+            <div class="expand-card__body">
+              <div class="expand-card__body-inner">
+                <p style="margin-bottom:.8rem;">All line items reconciled and closed. Report has been archived automatically.</p>
+                <a href="404.html" class="btn btn-secondary btn-sm">View summary</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-card__head">
+              <div class="table-user"><span class="table-avatar" style="background:var(--surface-3);">CR</span><div><h3 style="font-size:1rem;">Contract renewal — Northwind Systems</h3><span class="text-faint" style="font-size:.78rem;">Step 1 of 4 · Due Aug 20</span></div></div>
+              <span class="expand-card__plus" aria-hidden="true"></span>
+            </button>
+            <div class="expand-card__body">
+              <div class="expand-card__body-inner">
+                <p style="margin-bottom:.8rem;">Draft terms sent to legal for review. Waiting on redline before it moves forward.</p>
+                <div class="progress-card__bar" style="margin:0 0 .8rem;"><div class="progress-card__fill" style="width:20%;"></div></div>
+                <a href="404.html" class="btn btn-secondary btn-sm">Open workflow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-card__head">
+              <div class="table-user"><span class="table-avatar" style="background:var(--brass-dim);color:var(--brass);">PR</span><div><h3 style="font-size:1rem;">Purchase request — new laptops</h3><span class="text-faint" style="font-size:.78rem;">Step 2 of 3 · Due Aug 15</span></div></div>
+              <span class="expand-card__plus" aria-hidden="true"></span>
+            </button>
+            <div class="expand-card__body">
+              <div class="expand-card__body-inner">
+                <p style="margin-bottom:.8rem;">Budget approved by finance — waiting on IT to confirm specs before ordering.</p>
+                <div class="progress-card__bar" style="margin:0 0 .8rem;"><div class="progress-card__fill" style="width:66%;"></div></div>
+                <a href="404.html" class="btn btn-secondary btn-sm">Open workflow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-card__head">
+              <div class="table-user"><span class="table-avatar" style="background:var(--teal-dim);color:var(--teal);">OB</span><div><h3 style="font-size:1rem;">New hire onboarding — Theo Brandt</h3><span class="text-faint" style="font-size:.78rem;">Step 4 of 4 · Completed</span></div></div>
+              <span class="expand-card__plus" aria-hidden="true"></span>
+            </button>
+            <div class="expand-card__body">
+              <div class="expand-card__body-inner">
+                <p style="margin-bottom:.8rem;">Accounts provisioned and equipment shipped. Start date confirmed for Aug 18.</p>
+                <a href="404.html" class="btn btn-secondary btn-sm">View summary</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== TASKS PANEL ============================== -->
+    <div data-panel-content="tasks" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Workspace</span>
+          <h1 style="margin-top:.4rem;">Tasks</h1>
+          <p>5 open, due across the next two weeks.</p>
+        </div>
+        <div class="dash-head__actions">
+          <a href="404.html" class="btn btn-primary btn-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            New task
+          </a>
+        </div>
+      </div>
+
+      <div class="card dash-panel">
+        <ul data-task-list style="display:flex;flex-direction:column;gap:0;">
+          <li class="task-row">
+            <button type="button" class="task-check" aria-label="Mark complete"></button>
+            <div class="task-row__body">
+              <p>Review procurement sign-off for Acme Supplies</p>
+              <span class="text-faint" style="font-size:.78rem;">Vendor onboarding · Due Aug 12</span>
+            </div>
+            <span class="badge" style="color:var(--danger);border-color:rgba(240,102,92,.35);">High</span>
+          </li>
+          <li class="task-row">
+            <button type="button" class="task-check" aria-label="Mark complete"></button>
+            <div class="task-row__body">
+              <p>Confirm laptop specs with IT</p>
+              <span class="text-faint" style="font-size:.78rem;">Purchase request · Due Aug 15</span>
+            </div>
+            <span class="badge badge--brass">Medium</span>
+          </li>
+          <li class="task-row">
+            <button type="button" class="task-check" aria-label="Mark complete"></button>
+            <div class="task-row__body">
+              <p>Read redlined contract from legal</p>
+              <span class="text-faint" style="font-size:.78rem;">Contract renewal · Due Aug 18</span>
+            </div>
+            <span class="badge badge--brass">Medium</span>
+          </li>
+          <li class="task-row">
+            <button type="button" class="task-check" aria-label="Mark complete"></button>
+            <div class="task-row__body">
+              <p>Prep welcome packet for Theo's first day</p>
+              <span class="text-faint" style="font-size:.78rem;">New hire onboarding · Due Aug 18</span>
+            </div>
+            <span class="badge">Low</span>
+          </li>
+          <li class="task-row">
+            <button type="button" class="task-check" aria-label="Mark complete"></button>
+            <div class="task-row__body">
+              <p>Submit August expense receipts</p>
+              <span class="text-faint" style="font-size:.78rem;">Expense reconciliation · Due Aug 20</span>
+            </div>
+            <span class="badge">Low</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============================== REPORTS PANEL ============================== -->
+    <div data-panel-content="reports" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Workspace</span>
+          <h1 style="margin-top:.4rem;">Reports</h1>
+          <p>Reports you've generated or been given access to.</p>
+        </div>
+      </div>
+
+      <div class="card dash-panel">
+        <div class="dash-table-wrap">
+          <table class="dash-table">
+            <thead><tr><th>Report</th><th>Type</th><th>Generated</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>My expense summary — July</td><td class="text-muted">Personal</td><td class="text-faint mono" style="font-size:.8rem;">Aug 1, 2026</td><td><a href="#" class="dash-panel__more">Download</a></td></tr>
+              <tr><td>Vendor onboarding backlog</td><td class="text-muted">Team</td><td class="text-faint mono" style="font-size:.8rem;">Jul 27, 2026</td><td><a href="#" class="dash-panel__more">Download</a></td></tr>
+              <tr><td>Q2 task completion</td><td class="text-muted">Personal</td><td class="text-faint mono" style="font-size:.8rem;">Jul 3, 2026</td><td><a href="#" class="dash-panel__more">Download</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== PROFILE PANEL ============================== -->
+    <div data-panel-content="profile" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Account</span>
+          <h1 style="margin-top:.4rem;">My profile</h1>
+          <p>Your identity across the Fulcrum workspace.</p>
+        </div>
+      </div>
+
+      <div class="card dash-panel" style="max-width:560px;">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+          <span class="dash-profile__avatar" style="width:58px;height:58px;font-size:1.1rem;">JA</span>
+          <div>
+            <div style="font-weight:600;" data-profile-panel-name>Jordan Avery</div>
+            <div class="text-faint" style="font-size:.82rem;" data-profile-panel-email>jordan.avery@fulcrum.example</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Display name</label>
+          <input class="input" type="text" value="Jordan Avery" data-profile-panel-name-input>
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input class="input" type="email" value="jordan.avery@fulcrum.example" data-profile-panel-email-input disabled>
+          <p class="field-hint">This is the email you signed in with.</p>
+        </div>
+        <div class="field">
+          <label>Role</label>
+          <input class="input" type="text" value="Operations Analyst" disabled>
+        </div>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+
+    <!-- ============================== SETTINGS PANEL ============================== -->
+    <div data-panel-content="settings" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Account</span>
+          <h1 style="margin-top:.4rem;">Settings</h1>
+          <p>Notification preferences and workspace defaults.</p>
+        </div>
+      </div>
+
+      <div class="card dash-panel" style="max-width:560px;">
+        <div class="dash-panel__head"><h3>Notifications</h3></div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <label class="settings-row">
+            <span><span style="display:block;font-weight:600;font-size:.9rem;">Task reminders</span><span class="text-faint" style="font-size:.8rem;">Email me when a task is due within 24 hours.</span></span>
+            <span class="switch"><input type="checkbox" checked><span class="switch__track"></span></span>
+          </label>
+          <label class="settings-row">
+            <span><span style="display:block;font-weight:600;font-size:.9rem;">Workflow approvals</span><span class="text-faint" style="font-size:.8rem;">Notify me when something is waiting on my approval.</span></span>
+            <span class="switch"><input type="checkbox" checked><span class="switch__track"></span></span>
+          </label>
+          <label class="settings-row">
+            <span><span style="display:block;font-weight:600;font-size:.9rem;">Weekly digest</span><span class="text-faint" style="font-size:.8rem;">A Monday summary of what's on your plate.</span></span>
+            <span class="switch"><input type="checkbox"><span class="switch__track"></span></span>
+          </label>
+          <label class="settings-row">
+            <span><span style="display:block;font-weight:600;font-size:.9rem;">Product updates</span><span class="text-faint" style="font-size:.8rem;">Occasional emails about new Fulcrum features.</span></span>
+            <span class="switch"><input type="checkbox"><span class="switch__track"></span></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== HELP PANEL ============================== -->
+    <div data-panel-content="help" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Account</span>
+          <h1 style="margin-top:.4rem;">Help &amp; support</h1>
+          <p>Quick answers, or reach your team directly.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:var(--space-lg);">
+        <div class="expand-card is-open">
+          <button class="expand-card__head">
+            <h3 style="font-size:1rem;">How do I start a new workflow?</h3>
+            <span class="expand-card__plus" aria-hidden="true"></span>
+          </button>
+          <div class="expand-card__body" style="max-height:160px;">
+            <div class="expand-card__body-inner">Use the "New workflow" button on My workflows, then choose a template or start from scratch.</div>
+          </div>
+        </div>
+        <div class="expand-card">
+          <button class="expand-card__head">
+            <h3 style="font-size:1rem;">Why is my task still showing as open?</h3>
+            <span class="expand-card__plus" aria-hidden="true"></span>
+          </button>
+          <div class="expand-card__body">
+            <div class="expand-card__body-inner">Tap the circle next to a task on the Tasks page to mark it complete — it updates instantly.</div>
+          </div>
+        </div>
+        <div class="expand-card">
+          <button class="expand-card__head">
+            <h3 style="font-size:1rem;">Can I change my display name?</h3>
+            <span class="expand-card__plus" aria-hidden="true"></span>
+          </button>
+          <div class="expand-card__body">
+            <div class="expand-card__body-inner">Yes — head to My profile and update the Display name field, then save changes.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card dash-panel" style="text-align:center;">
+        <h3 style="margin-bottom:.4rem;">Still stuck?</h3>
+        <p class="text-muted" style="margin-bottom:1rem;">Your dedicated success manager usually replies within a few hours.</p>
+        <a href="404.html" class="btn btn-primary">Contact support</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

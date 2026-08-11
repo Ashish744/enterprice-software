@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — Fulcrum</title>
+<meta name="description" content="This page doesn't exist. Head back or return to the Fulcrum homepage.">
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="cursor-dot" data-cursor-dot></div>
+<div class="cursor-ring" data-cursor-ring></div>
+
+<main id="main">
+  <section class="error-page">
+    <div class="error-page__bg"></div>
+
+    <div class="error-page__code" aria-label="404" data-reveal="scale-type">
+      <span>4</span>
+      <span class="zero-pivot">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--brass)" data-float>
+          <path d="M5 24h22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 22 10 11h12L16 22Z" fill="currentColor"/>
+          <circle cx="6" cy="10" r="2.1" fill="currentColor"/><circle cx="27" cy="14" r="2.1" fill="currentColor"/>
+          <path d="M6 10 27 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span>4</span>
+    </div>
+
+    <p class="error-page__msg" data-reveal="fade-up">This page tipped off the edge of the platform. The one you're looking for doesn't exist, or it moved.</p>
+
+    <div class="error-page__actions" data-reveal="fade-up">
+      <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+      </button>
+      <a href="index.html" class="btn btn-primary btn-lg" data-magnetic="0.25">
+        Home
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+<script>
+  // No loader on this page, so fire the "loaded" hook immediately for consistency.
+  document.dispatchEvent(new CustomEvent('fulcrum:loaded'));
+</script>
+</body>
+</html>

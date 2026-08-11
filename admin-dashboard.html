@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Fulcrum</title>
+<meta name="description" content="Fulcrum admin dashboard — overview, analytics, users and platform activity.">
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dashboard-body">
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ============================== DASHBOARD NAVBAR ==============================
+     Per spec: ONLY logo (left) + profile (right). No marketing nav links here. -->
+<header class="dash-nav">
+  <div class="dash-nav__left">
+    <button class="dash-menu-btn" data-sidebar-toggle aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <a href="admin-dashboard.html" class="brand">
+      <span class="brand__mark">
+        <img src="assets/logo/logo.webp" alt="Fulcrum logo">
+      </span>
+    </a>
+  </div>
+
+  <div class="dash-nav__right">
+    <div class="dash-profile" data-profile-menu>
+      <button data-profile-trigger aria-haspopup="true" aria-expanded="false" style="display:flex;align-items:center;gap:.65rem;">
+        <span class="dash-profile__avatar">NW</span>
+        <span class="dash-profile__meta">
+          <span class="dash-profile__name" style="display:block;">Nadia Weiss</span>
+          <span class="dash-profile__role">Platform Admin</span>
+        </span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="dash-profile__menu">
+        <div style="padding:.7rem .9rem .8rem;border-bottom:1px solid var(--border);margin-bottom:.4rem;">
+          <div style="font-size:.68rem;color:var(--text-faint);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;">Signed in as</div>
+          <div style="font-size:.85rem;font-weight:600;word-break:break-all;" data-profile-email>nadia.weiss@fulcrum.example</div>
+        </div>
+        <a href="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Switch to user view</a>
+        <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>Account settings</a>
+        <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4M12 17h.01"/></svg>Help &amp; support</a>
+        <hr>
+        <a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>Back to website</a>
+        <a href="login.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Log out</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="dash-shell">
+  <div class="dash-sidebar-backdrop" data-sidebar-backdrop></div>
+  <!-- ============================== SIDEBAR (internal nav only) ============================== -->
+  <aside class="dash-sidebar" data-sidebar>
+    <div class="dash-search" style="margin-bottom:1.25rem;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" placeholder="Search…" aria-label="Search users, workflows, reports">
+    </div>
+    <div class="dash-sidebar__section">
+      <span class="dash-sidebar__label">Overview</span>
+      <a href="404.html" class="dash-sidebar__link is-active" data-panel="overview" data-panel-label="Dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a href="404.html" class="dash-sidebar__link" data-panel="analytics" data-panel-label="Analytics">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
+        Analytics
+      </a>
+      <a href="404.html" class="dash-sidebar__link" data-panel="reports" data-panel-label="Reports">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><path d="M6 6h12v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6Z"/><path d="m9 13 2 2 4-4"/></svg>
+        Reports
+        <span class="dash-sidebar__badge">3</span>
+      </a>
+    </div>
+    <div class="dash-sidebar__section">
+      <span class="dash-sidebar__label">Management</span>
+      <a href="404.html" class="dash-sidebar__link" data-panel="users" data-panel-label="Users">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14a5.2 5.2 0 0 1 5.5 6"/></svg>
+        Users
+      </a>
+      <a href="404.html" class="dash-sidebar__link" data-panel="revenue" data-panel-label="Revenue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.5-5-3.5S7 4.6 7 6.5c0 4 10 2 10 6.5 0 2.2-2.4 4-5.5 4S6 15.7 6 13.5"/></svg>
+        Revenue
+      </a>
+      <a href="404.html" class="dash-sidebar__link" data-panel="workflows" data-panel-label="Workflows">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5"/></svg>
+        Workflows
+      </a>
+      <a href="404.html" class="dash-sidebar__link" data-panel="activity" data-panel-label="Activity">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        Activity
+      </a>
+    </div>
+    <div class="dash-sidebar__section">
+      <span class="dash-sidebar__label">Account</span>
+      <a href="404.html" class="dash-sidebar__link" data-panel="security" data-panel-label="Security">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/></svg>
+        Security
+      </a>
+      <a href="404.html" class="dash-sidebar__link" data-panel="help" data-panel-label="Help &amp; support">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4M12 17h.01"/></svg>
+        Help &amp; support
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============================== MAIN CONTENT ============================== -->
+  <main class="dash-main" id="main">
+
+    <div data-panel-content="overview">
+    <div class="welcome-banner">
+      <div>
+        <span class="eyebrow">Overview</span>
+        <h1 style="margin-top:.4rem;">Good morning, <span data-welcome-name>Nadia</span>.</h1>
+        <p class="text-muted">Here's how the platform is running across all workspaces today.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:.6rem;">
+        <div class="relative" data-notif-menu>
+          <button class="dash-icon-btn" data-notif-trigger aria-haspopup="true" aria-expanded="false" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+            <span class="dot"></span>
+          </button>
+          <div class="dash-profile__menu" style="width:300px;">
+            <div style="padding:.5rem .6rem;font-size:.8rem;color:var(--text-faint);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;">Notifications</div>
+            <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>3 workflows are pending approval</a>
+            <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Monthly report is ready</a>
+            <a href="404.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>Unusual login detected</a>
+          </div>
+        </div>
+        <a href="404.html" class="btn btn-primary hide-mobile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          New report
+        </a>
+      </div>
+    </div>
+
+    <div class="dash-tabs" data-tabs>
+      <button class="dash-tab is-active" data-tab="today">Today</button>
+      <button class="dash-tab" data-tab="week">This week</button>
+      <button class="dash-tab" data-tab="month">This month</button>
+      <button class="dash-tab" data-tab="quarter">This quarter</button>
+    </div>
+
+    <!-- KPI cards -->
+    <div class="grid kpi-grid">
+      <div class="card kpi-card">
+        <div class="kpi-card__top"><span class="kpi-card__label">Total revenue</span><span class="kpi-card__delta is-up"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 18 18 6M9 6h9v9"/></svg>12.4%</span></div>
+        <span class="kpi-card__value mono">$<span data-counter="482300">0</span></span>
+        <div class="kpi-card__spark"><span data-height="40"></span><span data-height="55"></span><span data-height="35"></span><span data-height="70"></span><span data-height="50"></span><span data-height="65"></span><span data-height="90"></span></div>
+      </div>
+      <div class="card kpi-card">
+        <div class="kpi-card__top"><span class="kpi-card__label">Active users</span><span class="kpi-card__delta is-up"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 18 18 6M9 6h9v9"/></svg>4.8%</span></div>
+        <span class="kpi-card__value" data-counter="18240" data-counter-suffix="">0</span>
+        <div class="kpi-card__spark"><span data-height="60"></span><span data-height="45"></span><span data-height="65"></span><span data-height="50"></span><span data-height="72"></span><span data-height="58"></span><span data-height="80"></span></div>
+      </div>
+      <div class="card kpi-card">
+        <div class="kpi-card__top"><span class="kpi-card__label">Workflows run</span><span class="kpi-card__delta is-up"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 18 18 6M9 6h9v9"/></svg>8.1%</span></div>
+        <span class="kpi-card__value" data-counter="4200000" data-counter-suffix="">0</span>
+        <div class="kpi-card__spark"><span data-height="50"></span><span data-height="62"></span><span data-height="48"></span><span data-height="75"></span><span data-height="66"></span><span data-height="80"></span><span data-height="95"></span></div>
+      </div>
+      <div class="card kpi-card">
+        <div class="kpi-card__top"><span class="kpi-card__label">Avg. response time</span><span class="kpi-card__delta is-down"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6H9v9"/></svg>2.3%</span></div>
+        <span class="kpi-card__value"><span data-counter="1.4" data-counter-suffix="s">0</span></span>
+        <div class="kpi-card__spark"><span data-height="70"></span><span data-height="60"></span><span data-height="65"></span><span data-height="50"></span><span data-height="55"></span><span data-height="45"></span><span data-height="40"></span></div>
+      </div>
+    </div>
+
+    <!-- Bento: revenue chart, distribution donut, quick actions -->
+    <div class="grid dash-bento">
+      <div class="card dash-panel" style="grid-column: span 2;">
+        <div class="dash-panel__head">
+          <h3>Revenue by month</h3>
+          <span class="dash-panel__more">Last 7 months</span>
+        </div>
+        <div class="chart-bars">
+          <div class="bar" data-height="42"></div>
+          <div class="bar" data-height="58"></div>
+          <div class="bar" data-height="49"></div>
+          <div class="bar" data-height="67"></div>
+          <div class="bar" data-height="61"></div>
+          <div class="bar" data-height="78"></div>
+          <div class="bar is-highlight" data-height="92"></div>
+        </div>
+        <div class="chart-bars-labels"><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span></div>
+      </div>
+
+      <div class="card dash-panel">
+        <div class="dash-panel__head"><h3>Plan distribution</h3></div>
+        <div class="donut-wrap">
+          <div class="donut"><div class="donut-center"><span class="num">1,482</span><span class="text-faint" style="font-size:.7rem;">accounts</span></div></div>
+          <ul class="donut-legend">
+            <li><span class="swatch" style="background:var(--brass);"></span>Enterprise · 42%</li>
+            <li><span class="swatch" style="background:var(--teal);"></span>Growth · 26%</li>
+            <li><span class="swatch" style="background:var(--surface-3);"></span>Starter · 32%</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid dash-bento" style="grid-template-columns: 2fr 1fr;">
+      <!-- Users table -->
+      <div class="card dash-panel">
+        <div class="dash-panel__head">
+          <h3>Recent users</h3>
+          <a href="#" class="dash-panel__more">View all</a>
+        </div>
+        <div class="dash-table-wrap">
+          <table class="dash-table">
+            <thead><tr><th>User</th><th>Role</th><th>Status</th><th>Joined</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><div class="table-user"><span class="table-avatar">RM</span>Rina Mehta</div></td>
+                <td class="text-muted">Workspace Admin</td>
+                <td><span class="status-pill is-active">Active</span></td>
+                <td class="text-faint mono" style="font-size:.8rem;">Aug 2, 2026</td>
+              </tr>
+              <tr>
+                <td><div class="table-user"><span class="table-avatar">DK</span>David Kao</div></td>
+                <td class="text-muted">Editor</td>
+                <td><span class="status-pill is-active">Active</span></td>
+                <td class="text-faint mono" style="font-size:.8rem;">Jul 29, 2026</td>
+              </tr>
+              <tr>
+                <td><div class="table-user"><span class="table-avatar">AL</span>Amara Lindqvist</div></td>
+                <td class="text-muted">Viewer</td>
+                <td><span class="status-pill is-pending">Pending</span></td>
+                <td class="text-faint mono" style="font-size:.8rem;">Jul 27, 2026</td>
+              </tr>
+              <tr>
+                <td><div class="table-user"><span class="table-avatar">JS</span>Jonas Singh</div></td>
+                <td class="text-muted">Editor</td>
+                <td><span class="status-pill is-active">Active</span></td>
+                <td class="text-faint mono" style="font-size:.8rem;">Jul 22, 2026</td>
+              </tr>
+              <tr>
+                <td><div class="table-user"><span class="table-avatar">TC</span>Talia Cho</div></td>
+                <td class="text-muted">Workspace Admin</td>
+                <td><span class="status-pill is-inactive">Inactive</span></td>
+                <td class="text-faint mono" style="font-size:.8rem;">Jul 15, 2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Activity feed -->
+      <div class="card dash-panel">
+        <div class="dash-panel__head"><h3>Recent activity</h3></div>
+        <div class="activity-feed">
+          <div class="activity-item">
+            <span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div class="activity-body"><p>Rina Mehta approved <strong>Vendor onboarding #4471</strong></p><time>4 min ago</time></div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5"/></svg></span>
+            <div class="activity-body"><p>New connector synced with <strong>NetSuite</strong></p><time>22 min ago</time></div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></span>
+            <div class="activity-body"><p><strong>Talia Cho</strong> was invited to Finance workspace</p><time>1 hr ago</time></div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>
+            <div class="activity-body"><p>Anomaly flagged in <strong>Trade Reconciliation</strong></p><time>2 hr ago</time></div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><path d="M6 6h12v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6Z"/></svg></span>
+            <div class="activity-body"><p>Monthly compliance report generated</p><time>5 hr ago</time></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick actions -->
+    <div class="card dash-panel" style="margin-top:var(--space-lg);">
+      <div class="dash-panel__head"><h3>Quick actions</h3></div>
+      <div class="quick-actions">
+        <a href="404.html" class="quick-action">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M19 8v6M22 11h-6"/></svg>
+          Invite user
+        </a>
+        <a href="404.html" class="quick-action">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg>
+          New workflow
+        </a>
+        <a href="404.html" class="quick-action">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><path d="M6 6h12v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6Z"/></svg>
+          Export report
+        </a>
+        <a href="404.html" class="quick-action">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/></svg>
+          Review access
+        </a>
+      </div>
+    </div>
+    </div>
+    <!-- /overview panel -->
+
+    <!-- ============================== ANALYTICS PANEL ============================== -->
+    <div data-panel-content="analytics" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Analytics</span>
+          <h1 style="margin-top:.4rem;">Platform analytics</h1>
+          <p>Throughput, reliability and where time gets spent across every workspace.</p>
+        </div>
+        <div class="dash-head__actions">
+          <a href="#" class="btn btn-secondary btn-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><path d="M6 6h12v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6Z"/></svg>
+            Export CSV
+          </a>
+        </div>
+      </div>
+
+      <div class="grid kpi-grid">
+        <div class="card kpi-card">
+          <div class="kpi-card__top"><span class="kpi-card__label">Workflow throughput</span><span class="kpi-card__delta is-up"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 18 18 6M9 6h9v9"/></svg>6.2%</span></div>
+          <span class="kpi-card__value" data-counter="139400" data-counter-suffix="/day">0</span>
+          <div class="kpi-card__spark"><span data-height="45"></span><span data-height="55"></span><span data-height="50"></span><span data-height="65"></span><span data-height="60"></span><span data-height="75"></span><span data-height="85"></span></div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-card__top"><span class="kpi-card__label">Success rate</span><span class="kpi-card__delta is-up"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 18 18 6M9 6h9v9"/></svg>0.4%</span></div>
+          <span class="kpi-card__value"><span data-counter="99.6" data-counter-suffix="%">0</span></span>
+          <div class="kpi-card__spark"><span data-height="80"></span><span data-height="82"></span><span data-height="78"></span><span data-height="85"></span><span data-height="88"></span><span data-height="90"></span><span data-height="92"></span></div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-card__top"><span class="kpi-card__label">P95 latency</span><span class="kpi-card__delta is-down"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6H9v9"/></svg>3.1%</span></div>
+          <span class="kpi-card__value"><span data-counter="820" data-counter-suffix="ms">0</span></span>
+          <div class="kpi-card__spark"><span data-height="60"></span><span data-height="55"></span><span data-height="58"></span><span data-height="50"></span><span data-height="48"></span><span data-height="44"></span><span data-height="40"></span></div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-card__top"><span class="kpi-card__label">Active integrations</span><span class="kpi-card__delta is-up"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 18 18 6M9 6h9v9"/></svg>2.0%</span></div>
+          <span class="kpi-card__value" data-counter="312">0</span>
+          <div class="kpi-card__spark"><span data-height="50"></span><span data-height="52"></span><span data-height="55"></span><span data-height="58"></span><span data-height="60"></span><span data-height="63"></span><span data-height="66"></span></div>
+        </div>
+      </div>
+
+      <div class="grid dash-bento">
+        <div class="card dash-panel" style="grid-column: span 2;">
+          <div class="dash-panel__head">
+            <h3>Workflow runs by day</h3>
+            <span class="dash-panel__more">Last 7 days</span>
+          </div>
+          <div class="chart-bars">
+            <div class="bar" data-height="55"></div>
+            <div class="bar" data-height="62"></div>
+            <div class="bar" data-height="48"></div>
+            <div class="bar" data-height="70"></div>
+            <div class="bar" data-height="65"></div>
+            <div class="bar" data-height="58"></div>
+            <div class="bar is-highlight" data-height="88"></div>
+          </div>
+          <div class="chart-bars-labels"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        </div>
+        <div class="card dash-panel">
+          <div class="dash-panel__head"><h3>Time spent by stage</h3></div>
+          <div class="donut-wrap">
+            <div class="donut" style="background: conic-gradient(var(--brass) 0% 35%, var(--teal) 35% 60%, var(--surface-3) 60% 100%);"><div class="donut-center"><span class="num">4.1s</span><span class="text-faint" style="font-size:.7rem;">avg. total</span></div></div>
+            <ul class="donut-legend">
+              <li><span class="swatch" style="background:var(--brass);"></span>Approval wait · 35%</li>
+              <li><span class="swatch" style="background:var(--teal);"></span>Data sync · 25%</li>
+              <li><span class="swatch" style="background:var(--surface-3);"></span>Processing · 40%</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card dash-panel" style="margin-top:var(--space-lg);">
+        <div class="dash-panel__head"><h3>Top workflows by volume</h3></div>
+        <div class="dash-table-wrap">
+          <table class="dash-table">
+            <thead><tr><th>Workflow</th><th>Runs today</th><th>Success rate</th><th>Avg. duration</th></tr></thead>
+            <tbody>
+              <tr><td>Vendor onboarding</td><td class="text-muted">4,812</td><td><span class="status-pill is-active">99.4%</span></td><td class="text-faint mono" style="font-size:.8rem;">2m 40s</td></tr>
+              <tr><td>Expense reconciliation</td><td class="text-muted">3,290</td><td><span class="status-pill is-active">99.8%</span></td><td class="text-faint mono" style="font-size:.8rem;">1m 05s</td></tr>
+              <tr><td>Contract renewal</td><td class="text-muted">1,104</td><td><span class="status-pill is-pending">97.1%</span></td><td class="text-faint mono" style="font-size:.8rem;">6m 12s</td></tr>
+              <tr><td>Trade reconciliation</td><td class="text-muted">942</td><td><span class="status-pill is-active">99.1%</span></td><td class="text-faint mono" style="font-size:.8rem;">3m 50s</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== REPORTS PANEL ============================== -->
+    <div data-panel-content="reports" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Reports</span>
+          <h1 style="margin-top:.4rem;">Reports</h1>
+          <p>Scheduled and on-demand reports across the platform.</p>
+        </div>
+        <div class="dash-head__actions">
+          <a href="404.html" class="btn btn-primary btn-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            New report
+          </a>
+        </div>
+      </div>
+
+      <div class="card dash-panel">
+        <div class="dash-panel__head"><h3>Recent reports</h3></div>
+        <div class="dash-table-wrap">
+          <table class="dash-table">
+            <thead><tr><th>Report</th><th>Type</th><th>Generated</th><th>Status</th><th></th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Monthly compliance summary</td><td class="text-muted">Compliance</td>
+                <td class="text-faint mono" style="font-size:.8rem;">Aug 1, 2026</td>
+                <td><span class="status-pill is-active">Ready</span></td>
+                <td><a href="#" class="dash-panel__more">Download</a></td>
+              </tr>
+              <tr>
+                <td>Q3 revenue by plan</td><td class="text-muted">Revenue</td>
+                <td class="text-faint mono" style="font-size:.8rem;">Jul 28, 2026</td>
+                <td><span class="status-pill is-active">Ready</span></td>
+                <td><a href="#" class="dash-panel__more">Download</a></td>
+              </tr>
+              <tr>
+                <td>User access audit</td><td class="text-muted">Security</td>
+                <td class="text-faint mono" style="font-size:.8rem;">Jul 25, 2026</td>
+                <td><span class="status-pill is-pending">Generating</span></td>
+                <td><a href="#" class="dash-panel__more" style="opacity:.4;pointer-events:none;">Download</a></td>
+              </tr>
+              <tr>
+                <td>Workflow performance — July</td><td class="text-muted">Analytics</td>
+                <td class="text-faint mono" style="font-size:.8rem;">Jul 20, 2026</td>
+                <td><span class="status-pill is-active">Ready</span></td>
+                <td><a href="#" class="dash-panel__more">Download</a></td>
+              </tr>
+              <tr>
+                <td>Vendor onboarding backlog</td><td class="text-muted">Operations</td>
+                <td class="text-faint mono" style="font-size:.8rem;">Jul 14, 2026</td>
+                <td><span class="status-pill is-inactive">Archived</span></td>
+                <td><a href="#" class="dash-panel__more">Download</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card dash-panel" style="margin-top:var(--space-lg);">
+        <div class="dash-panel__head"><h3>Scheduled reports</h3></div>
+        <div style="display:flex;flex-direction:column;gap:.7rem;">
+          <div class="expand-card">
+            <button class="expand-card__head">
+              <div class="table-user"><span class="table-avatar" style="background:var(--brass-dim);color:var(--brass);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><div><h3 style="font-size:1rem;">Weekly compliance digest</h3><span class="text-faint" style="font-size:.78rem;">Every Monday · 8:00 AM</span></div></div>
+              <span class="expand-card__plus" aria-hidden="true"></span>
+            </button>
+            <div class="expand-card__body">
+              <div class="expand-card__body-inner">
+                <p style="margin-bottom:.8rem;">Sent automatically to compliance@fulcrum.example and archived for audit.</p>
+                <a href="#" class="btn btn-secondary btn-sm">Edit schedule</a>
+              </div>
+            </div>
+          </div>
+          <div class="expand-card">
+            <button class="expand-card__head">
+              <div class="table-user"><span class="table-avatar" style="background:var(--teal-dim);color:var(--teal);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><div><h3 style="font-size:1rem;">Monthly revenue rollup</h3><span class="text-faint" style="font-size:.78rem;">1st of month · 6:00 AM</span></div></div>
+              <span class="expand-card__plus" aria-hidden="true"></span>
+            </button>
+            <div class="expand-card__body">
+              <div class="expand-card__body-inner">
+                <p style="margin-bottom:.8rem;">Delivered to the finance workspace with plan-level breakdowns.</p>
+                <a href="#" class="btn btn-secondary btn-sm">Edit schedule</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== USERS PANEL ============================== -->
+    <div data-panel-content="users" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Management</span>
+          <h1 style="margin-top:.4rem;">Users</h1>
+          <p>1,482 accounts across every workspace.</p>
+        </div>
+        <div class="dash-head__actions">
+          <a href="404.html" class="btn btn-primary btn-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 8v6M22 11h-6"/><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+            Invite user
+          </a>
+        </div>
+      </div>
+
+      <div class="dash-filters">
+        <div class="dash-chips">
+          <button class="dash-chip is-active">All · 1,482</button>
+          <button class="dash-chip">Admins · 24</button>
+          <button class="dash-chip">Editors · 318</button>
+          <button class="dash-chip">Viewers · 1,140</button>
+        </div>
+        <div class="dash-filter-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" placeholder="Search users…" aria-label="Search users">
+        </div>
+      </div>
+
+      <div class="card dash-panel">
+        <div class="dash-table-wrap">
+          <table class="dash-table">
+            <thead><tr><th>User</th><th>Role</th><th>Workspace</th><th>Status</th><th>Joined</th></tr></thead>
+            <tbody>
+              <tr><td><div class="table-user"><span class="table-avatar">RM</span>Rina Mehta</div></td><td class="text-muted">Workspace Admin</td><td class="text-muted">Operations</td><td><span class="status-pill is-active">Active</span></td><td class="text-faint mono" style="font-size:.8rem;">Aug 2, 2026</td></tr>
+              <tr><td><div class="table-user"><span class="table-avatar">DK</span>David Kao</div></td><td class="text-muted">Editor</td><td class="text-muted">IT</td><td><span class="status-pill is-active">Active</span></td><td class="text-faint mono" style="font-size:.8rem;">Jul 29, 2026</td></tr>
+              <tr><td><div class="table-user"><span class="table-avatar">AL</span>Amara Lindqvist</div></td><td class="text-muted">Viewer</td><td class="text-muted">Finance</td><td><span class="status-pill is-pending">Pending</span></td><td class="text-faint mono" style="font-size:.8rem;">Jul 27, 2026</td></tr>
+              <tr><td><div class="table-user"><span class="table-avatar">JS</span>Jonas Singh</div></td><td class="text-muted">Editor</td><td class="text-muted">Operations</td><td><span class="status-pill is-active">Active</span></td><td class="text-faint mono" style="font-size:.8rem;">Jul 22, 2026</td></tr>
+              <tr><td><div class="table-user"><span class="table-avatar">TC</span>Talia Cho</div></td><td class="text-muted">Workspace Admin</td><td class="text-muted">Finance</td><td><span class="status-pill is-inactive">Inactive</span></td><td class="text-faint mono" style="font-size:.8rem;">Jul 15, 2026</td></tr>
+              <tr><td><div class="table-user"><span class="table-avatar">PN</span>Priya Nair</div></td><td class="text-muted">Viewer</td><td class="text-muted">Legal</td><td><span class="status-pill is-active">Active</span></td><td class="text-faint mono" style="font-size:.8rem;">Jul 9, 2026</td></tr>
+              <tr><td><div class="table-user"><span class="table-avatar">MO</span>Marcus Ortega</div></td><td class="text-muted">Editor</td><td class="text-muted">Logistics</td><td><span class="status-pill is-active">Active</span></td><td class="text-faint mono" style="font-size:.8rem;">Jun 30, 2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== REVENUE PANEL ============================== -->
+    <div data-panel-content="revenue" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Management</span>
+          <h1 style="margin-top:.4rem;">Revenue</h1>
+          <p>Recurring revenue and plan mix across the customer base.</p>
+        </div>
+        <div class="dash-head__actions">
+          <a href="404.html" class="btn btn-secondary btn-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><path d="M6 6h12v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6Z"/></svg>
+            Export
+          </a>
+        </div>
+      </div>
+
+      <div class="grid kpi-grid">
+        <div class="card kpi-card">
+          <div class="kpi-card__top"><span class="kpi-card__label">MRR</span><span class="kpi-card__delta is-up"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 18 18 6M9 6h9v9"/></svg>9.8%</span></div>
+          <span class="kpi-card__value mono">$<span data-counter="164200">0</span></span>
+          <div class="kpi-card__spark"><span data-height="40"></span><span data-height="48"></span><span data-height="52"></span><span data-height="58"></span><span data-height="64"></span><span data-height="72"></span><span data-height="86"></span></div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-card__top"><span class="kpi-card__label">ARR</span><span class="kpi-card__delta is-up"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 18 18 6M9 6h9v9"/></svg>9.8%</span></div>
+          <span class="kpi-card__value mono">$<span data-counter="1970400">0</span></span>
+          <div class="kpi-card__spark"><span data-height="40"></span><span data-height="48"></span><span data-height="52"></span><span data-height="58"></span><span data-height="64"></span><span data-height="72"></span><span data-height="86"></span></div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-card__top"><span class="kpi-card__label">Net revenue retention</span><span class="kpi-card__delta is-up"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 18 18 6M9 6h9v9"/></svg>3.2%</span></div>
+          <span class="kpi-card__value"><span data-counter="118" data-counter-suffix="%">0</span></span>
+          <div class="kpi-card__spark"><span data-height="60"></span><span data-height="62"></span><span data-height="65"></span><span data-height="68"></span><span data-height="72"></span><span data-height="78"></span><span data-height="84"></span></div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-card__top"><span class="kpi-card__label">Churn rate</span><span class="kpi-card__delta is-down"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6H9v9"/></svg>0.6%</span></div>
+          <span class="kpi-card__value"><span data-counter="1.8" data-counter-suffix="%">0</span></span>
+          <div class="kpi-card__spark"><span data-height="55"></span><span data-height="50"></span><span data-height="48"></span><span data-height="44"></span><span data-height="40"></span><span data-height="36"></span><span data-height="32"></span></div>
+        </div>
+      </div>
+
+      <div class="grid dash-bento">
+        <div class="card dash-panel" style="grid-column: span 2;">
+          <div class="dash-panel__head"><h3>MRR by month</h3><span class="dash-panel__more">Last 7 months</span></div>
+          <div class="chart-bars">
+            <div class="bar" data-height="40"></div><div class="bar" data-height="48"></div><div class="bar" data-height="52"></div>
+            <div class="bar" data-height="60"></div><div class="bar" data-height="68"></div><div class="bar" data-height="78"></div>
+            <div class="bar is-highlight" data-height="94"></div>
+          </div>
+          <div class="chart-bars-labels"><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span></div>
+        </div>
+        <div class="card dash-panel">
+          <div class="dash-panel__head"><h3>Revenue by plan</h3></div>
+          <div class="donut-wrap">
+            <div class="donut"><div class="donut-center"><span class="num">$164K</span><span class="text-faint" style="font-size:.7rem;">MRR</span></div></div>
+            <ul class="donut-legend">
+              <li><span class="swatch" style="background:var(--brass);"></span>Enterprise · 58%</li>
+              <li><span class="swatch" style="background:var(--teal);"></span>Growth · 31%</li>
+              <li><span class="swatch" style="background:var(--surface-3);"></span>Starter · 11%</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== WORKFLOWS PANEL ============================== -->
+    <div data-panel-content="workflows" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Management</span>
+          <h1 style="margin-top:.4rem;">Workflows</h1>
+          <p>Every workflow template running across the platform.</p>
+        </div>
+        <div class="dash-head__actions">
+          <a href="#" class="btn btn-primary btn-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            New workflow
+          </a>
+        </div>
+      </div>
+
+      <div class="grid dash-bento">
+        <div class="card dash-panel">
+          <div class="dash-panel__head"><h3>Vendor onboarding</h3><span class="status-pill is-active">Active</span></div>
+          <p class="text-muted" style="font-size:var(--fs-sm);margin-bottom:1rem;">5-step approval chain across procurement, legal and finance.</p>
+          <div class="chart-bars-labels" style="margin:0 0 .4rem;justify-content:space-between;display:flex;"><span>Runs today</span><span class="mono text-muted">4,812</span></div>
+          <div class="progress-card__bar" style="margin:0;"><div class="progress-card__fill" style="width:99%;"></div></div>
+        </div>
+        <div class="card dash-panel">
+          <div class="dash-panel__head"><h3>Expense reconciliation</h3><span class="status-pill is-active">Active</span></div>
+          <p class="text-muted" style="font-size:var(--fs-sm);margin-bottom:1rem;">Matches receipts to ledger entries and flags anomalies.</p>
+          <div class="chart-bars-labels" style="margin:0 0 .4rem;justify-content:space-between;display:flex;"><span>Runs today</span><span class="mono text-muted">3,290</span></div>
+          <div class="progress-card__bar" style="margin:0;"><div class="progress-card__fill" style="width:99.8%;"></div></div>
+        </div>
+        <div class="card dash-panel">
+          <div class="dash-panel__head"><h3>Contract renewal</h3><span class="status-pill is-pending">Needs review</span></div>
+          <p class="text-muted" style="font-size:var(--fs-sm);margin-bottom:1rem;">Routes redlines between legal and account owners.</p>
+          <div class="chart-bars-labels" style="margin:0 0 .4rem;justify-content:space-between;display:flex;"><span>Runs today</span><span class="mono text-muted">1,104</span></div>
+          <div class="progress-card__bar" style="margin:0;"><div class="progress-card__fill" style="width:97%;"></div></div>
+        </div>
+        <div class="card dash-panel">
+          <div class="dash-panel__head"><h3>Trade reconciliation</h3><span class="status-pill is-active">Active</span></div>
+          <p class="text-muted" style="font-size:var(--fs-sm);margin-bottom:1rem;">Real-time matching across the FX desk and risk review.</p>
+          <div class="chart-bars-labels" style="margin:0 0 .4rem;justify-content:space-between;display:flex;"><span>Runs today</span><span class="mono text-muted">942</span></div>
+          <div class="progress-card__bar" style="margin:0;"><div class="progress-card__fill" style="width:99.1%;"></div></div>
+        </div>
+        <div class="card dash-panel">
+          <div class="dash-panel__head"><h3>Patient intake</h3><span class="status-pill is-active">Active</span></div>
+          <p class="text-muted" style="font-size:var(--fs-sm);margin-bottom:1rem;">Coordinates authorization between intake and care teams.</p>
+          <div class="chart-bars-labels" style="margin:0 0 .4rem;justify-content:space-between;display:flex;"><span>Runs today</span><span class="mono text-muted">611</span></div>
+          <div class="progress-card__bar" style="margin:0;"><div class="progress-card__fill" style="width:98.4%;"></div></div>
+        </div>
+        <div class="card dash-panel">
+          <div class="dash-panel__head"><h3>Shipment exceptions</h3><span class="status-pill is-inactive">Paused</span></div>
+          <p class="text-muted" style="font-size:var(--fs-sm);margin-bottom:1rem;">Flags delayed carriers for the logistics team to triage.</p>
+          <div class="chart-bars-labels" style="margin:0 0 .4rem;justify-content:space-between;display:flex;"><span>Runs today</span><span class="mono text-muted">0</span></div>
+          <div class="progress-card__bar" style="margin:0;"><div class="progress-card__fill" style="width:0%;"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== ACTIVITY PANEL ============================== -->
+    <div data-panel-content="activity" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Management</span>
+          <h1 style="margin-top:.4rem;">Activity log</h1>
+          <p>A full audit trail of what's happened across the platform.</p>
+        </div>
+      </div>
+
+      <div class="card dash-panel">
+        <div class="activity-feed">
+          <div class="activity-item"><span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span><div class="activity-body"><p>Rina Mehta approved <strong>Vendor onboarding #4471</strong></p><time>4 min ago</time></div></div>
+          <div class="activity-item"><span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5"/></svg></span><div class="activity-body"><p>New connector synced with <strong>NetSuite</strong></p><time>22 min ago</time></div></div>
+          <div class="activity-item"><span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></span><div class="activity-body"><p><strong>Talia Cho</strong> was invited to Finance workspace</p><time>1 hr ago</time></div></div>
+          <div class="activity-item"><span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span><div class="activity-body"><p>Anomaly flagged in <strong>Trade Reconciliation</strong></p><time>2 hr ago</time></div></div>
+          <div class="activity-item"><span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><path d="M6 6h12v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6Z"/></svg></span><div class="activity-body"><p>Monthly compliance report generated</p><time>5 hr ago</time></div></div>
+          <div class="activity-item"><span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><div class="activity-body"><p><strong>David Kao</strong> updated permissions for the IT workspace</p><time>Yesterday, 6:12 PM</time></div></div>
+          <div class="activity-item"><span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5"/></svg></span><div class="activity-body"><p>Custom connector deployed for <strong>Workday</strong></p><time>Yesterday, 2:45 PM</time></div></div>
+          <div class="activity-item"><span class="activity-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></span><div class="activity-body"><p>SLA breach alert on <strong>Shipment exceptions</strong> workflow</p><time>Yesterday, 11:03 AM</time></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== SECURITY PANEL ============================== -->
+    <div data-panel-content="security" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Account</span>
+          <h1 style="margin-top:.4rem;">Security</h1>
+          <p>Authentication, sessions and access controls for this workspace.</p>
+        </div>
+      </div>
+
+      <div class="grid dash-bento">
+        <div class="card dash-panel">
+          <div class="dash-panel__head"><h3>Single sign-on</h3><span class="status-pill is-active">Enforced</span></div>
+          <p class="text-muted" style="font-size:var(--fs-sm);">SAML SSO via Okta is required for all workspace members.</p>
+        </div>
+        <div class="card dash-panel">
+          <div class="dash-panel__head"><h3>Two-factor authentication</h3><span class="status-pill is-active">Enforced</span></div>
+          <p class="text-muted" style="font-size:var(--fs-sm);">Required for all Workspace Admin and Editor roles.</p>
+        </div>
+        <div class="card dash-panel">
+          <div class="dash-panel__head"><h3>API keys</h3><span class="badge">4 active</span></div>
+          <p class="text-muted" style="font-size:var(--fs-sm);">Used by 4 registered integrations. Last rotated 12 days ago.</p>
+        </div>
+      </div>
+
+      <div class="card dash-panel" style="margin-top:var(--space-lg);">
+        <div class="dash-panel__head"><h3>Active sessions</h3></div>
+        <div class="dash-table-wrap">
+          <table class="dash-table">
+            <thead><tr><th>Device</th><th>Location</th><th>Last active</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>Chrome on macOS</td><td class="text-muted">San Francisco, US</td><td class="text-faint mono" style="font-size:.8rem;">Just now</td><td><span class="status-pill is-active">This device</span></td></tr>
+              <tr><td>Safari on iOS</td><td class="text-muted">San Francisco, US</td><td class="text-faint mono" style="font-size:.8rem;">3 hr ago</td><td><a href="#" class="dash-panel__more">Revoke</a></td></tr>
+              <tr><td>Chrome on Windows</td><td class="text-muted">Austin, US</td><td class="text-faint mono" style="font-size:.8rem;">2 days ago</td><td><a href="#" class="dash-panel__more">Revoke</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== HELP PANEL ============================== -->
+    <div data-panel-content="help" hidden>
+      <div class="dash-head">
+        <div>
+          <span class="eyebrow">Account</span>
+          <h1 style="margin-top:.4rem;">Help &amp; support</h1>
+          <p>Answers to common questions, or reach your account team directly.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:var(--space-lg);">
+        <div class="expand-card is-open">
+          <button class="expand-card__head">
+            <h3 style="font-size:1rem;">How do I add a new integration?</h3>
+            <span class="expand-card__plus" aria-hidden="true"></span>
+          </button>
+          <div class="expand-card__body" style="max-height:160px;">
+            <div class="expand-card__body-inner">Go to Workflows → Connectors → Add connector, then follow the guided OAuth flow for your system.</div>
+          </div>
+        </div>
+        <div class="expand-card">
+          <button class="expand-card__head">
+            <h3 style="font-size:1rem;">How do I change a user's role?</h3>
+            <span class="expand-card__plus" aria-hidden="true"></span>
+          </button>
+          <div class="expand-card__body">
+            <div class="expand-card__body-inner">Open Users, select the person, and choose a new role from the dropdown. Changes apply immediately.</div>
+          </div>
+        </div>
+        <div class="expand-card">
+          <button class="expand-card__head">
+            <h3 style="font-size:1rem;">Can I export raw workflow data?</h3>
+            <span class="expand-card__plus" aria-hidden="true"></span>
+          </button>
+          <div class="expand-card__body">
+            <div class="expand-card__body-inner">Yes — every table in Reports and Analytics has a CSV export in the top-right corner.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card dash-panel" style="text-align:center;">
+        <h3 style="margin-bottom:.4rem;">Still stuck?</h3>
+        <p class="text-muted" style="margin-bottom:1rem;">Your dedicated success manager usually replies within a few hours.</p>
+        <a href="404.html" class="btn btn-primary">Contact support</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

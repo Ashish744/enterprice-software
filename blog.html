@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Fulcrum</title>
+<meta name="description" content="Notes on enterprise operations, workflow design and what it takes to run a rollout that actually sticks.">
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<div class="loader" data-loader aria-hidden="true">
+  <div class="loader__bento">
+    <div class="loader__cell"></div><div class="loader__cell"></div><div class="loader__cell"></div><div class="loader__cell"></div>
+    <div class="loader__cell loader__center">
+      <!-- FULCRUM LOGO MARK -->
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--brass)">
+        <path d="M5 24h22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16 22 10 11h12L16 22Z" fill="currentColor"/>
+        <circle cx="6" cy="10" r="2.1" fill="currentColor"/><circle cx="27" cy="14" r="2.1" fill="currentColor"/>
+        <path d="M6 10 27 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="loader__cell"></div><div class="loader__cell"></div>
+    <div class="loader__cell"></div><div class="loader__cell"></div><div class="loader__cell"></div><div class="loader__cell"></div>
+  </div>
+  <div class="loader__pct" data-loader-pct>0%</div>
+</div>
+
+<div class="cursor-dot" data-cursor-dot></div>
+<div class="cursor-ring" data-cursor-ring></div>
+<div class="balance-beam" data-balance-beam><div class="balance-beam__fill"></div><div class="balance-beam__pivot"></div></div>
+
+<header class="nav" data-nav>
+  <div class="nav__inner">
+    <a href="index.html" class="brand">
+      <span class="brand__mark">
+        <img src="assets/logo/logo.webp" alt="Fulcrum logo">
+      </span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <a href="login.html" class="nav__login hide-mobile">Log in</a>
+      <a href="404.html" class="btn btn-primary btn-sm hide-mobile" data-magnetic="0.3">Start free trial</a>
+      <button class="nav__burger" data-burger aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" data-mobile-menu>
+  <nav class="mobile-menu__links" aria-label="Mobile primary">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="mobile-menu__actions">
+    <a href="login.html" class="btn btn-secondary btn-block">Log in</a>
+    <a href="404.html" class="btn btn-primary btn-block">Start free trial</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="page-hero" style="padding-bottom:2rem;">
+    <div class="hero-bg-slides" data-hero-bg-rotator>
+      <div class="hero-bg-slide is-active" style="background-image:url('assets/images/webp1.webp');"></div>
+      <div class="hero-bg-slide" style="background-image:url('assets/images/webp2.webp');"></div>
+      <div class="hero-bg-slide" style="background-image:url('assets/images/webp3.webp');"></div>
+    </div>
+    <div class="page-hero__bg"></div>
+    <div class="container page-hero__inner">
+      <span class="eyebrow">The Fulcrum blog</span>
+      <h1 data-split="lines">Notes on running enterprise operations well — and the decisions that keep a rollout predictable at scale.</h1>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+
+      <!-- Featured article -->
+      <a href="404.html" class="blog-featured" data-reveal="fade-up" style="text-decoration:none;color:inherit;">
+        <div class="blog-featured__media media-grad-1">
+          <img src="assets/images/webp4.webp" alt="" loading="lazy">
+          <div class="media-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></div>
+        </div>
+        <div class="blog-featured__body">
+          <div class="blog-featured__meta">
+            <span>OPERATIONS</span><span>·</span><span>12 MIN READ</span><span>·</span><span>AUG 2, 2026</span>
+          </div>
+          <h2>Why most workflow tools fail at the reconciliation step</h2>
+          <p>The gap between "the workflow ran" and "the numbers agree" is where most enterprise automation quietly breaks. Here's what we've learned fixing it across 1,000+ rollouts.</p>
+          <span class="btn btn-secondary"> <a href="404.html">Read the article</a> </span>
+        </div>
+      </a>
+
+      <!-- Filters -->
+      <div class="blog-filters" style="margin-top:var(--space-2xl);">
+        <div class="blog-cats" data-blog-cats>
+          <button class="blog-cat is-active" data-cat="all">All</button>
+          <button class="blog-cat" data-cat="operations">Operations</button>
+          <button class="blog-cat" data-cat="engineering">Engineering</button>
+          <button class="blog-cat" data-cat="product">Product</button>
+          <button class="blog-cat" data-cat="customers">Customers</button>
+        </div>
+        <div class="blog-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" placeholder="Search articles…" aria-label="Search articles" data-blog-search>
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid blog-grid" data-blog-grid style="margin-top:var(--space-xl);">
+
+        <a href="404.html" class="card blog-card" data-cat="engineering" data-reveal="fade-up" data-reveal-group="blog">
+          <div class="blog-card__media media-grad-2">
+          <img src="assets/images/webp5.webp" alt="" loading="lazy">
+          <div class="media-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5"/></svg></div></div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Engineering</span>
+            <h3>Designing retries that don't duplicate side effects</h3>
+            <p class="text-muted" style="font-size:var(--fs-sm);">Idempotency is the quiet feature that makes automation trustworthy.</p>
+            <div class="blog-card__meta"><span>7 min read</span><span>Jul 28, 2026</span></div>
+          </div>
+        </a>
+
+        <a href="404.html" class="card blog-card" data-cat="product" data-reveal="fade-up" data-reveal-group="blog">
+          <div class="blog-card__media media-grad-3">
+          <img src="assets/images/webp6.webp" alt="" loading="lazy">
+          <div class="media-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="12" r="2.5"/><path d="M6 8.5v7M8.3 6.8 15.8 10.6M8.3 17.2 15.8 13.4"/></svg></div></div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Product</span>
+            <h3>Inside the new workflow builder</h3>
+            <p class="text-muted" style="font-size:var(--fs-sm);">A look at the branching logic engine we shipped this quarter.</p>
+            <div class="blog-card__meta"><span>5 min read</span><span>Jul 21, 2026</span></div>
+          </div>
+        </a>
+
+        <a href="404.html" class="card blog-card" data-cat="customers" data-reveal="fade-up" data-reveal-group="blog">
+          <div class="blog-card__media media-grad-4">
+          <img src="assets/images/webp7.webp" alt="" loading="lazy">
+          <div class="media-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Customers</span>
+            <h3>How Kepler Logistics cut approval time by 2.1x</h3>
+            <p class="text-muted" style="font-size:var(--fs-sm);">A six-week rollout across freight, warehousing and finance.</p>
+            <div class="blog-card__meta"><span>9 min read</span><span>Jul 14, 2026</span></div>
+          </div>
+        </a>
+
+        <a href="404.html" class="card blog-card" data-cat="operations" data-reveal="fade-up" data-reveal-group="blog">
+          <div class="blog-card__media media-grad-5">
+          <img src="assets/images/webp8.webp" alt="" loading="lazy">
+          <div class="media-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/></svg></div></div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Operations</span>
+            <h3>A field guide to access governance in large orgs</h3>
+            <p class="text-muted" style="font-size:var(--fs-sm);">Field-level permissions that survive a reorg without a rebuild.</p>
+            <div class="blog-card__meta"><span>11 min read</span><span>Jul 7, 2026</span></div>
+          </div>
+        </a>
+
+        <a href="404.html" class="card blog-card" data-cat="engineering" data-reveal="fade-up" data-reveal-group="blog">
+          <div class="blog-card__media media-grad-1">
+          <img src="assets/images/webp9.webp" alt="" loading="lazy">
+          <div class="media-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></div></div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Engineering</span>
+            <h3>What we learned scaling to 4M workflows a day</h3>
+            <p class="text-muted" style="font-size:var(--fs-sm);">Notes from the team that keeps the command center at 99.98% uptime.</p>
+            <div class="blog-card__meta"><span>8 min read</span><span>Jun 30, 2026</span></div>
+          </div>
+        </a>
+
+        <a href="404.html" class="card blog-card" data-cat="operations" data-reveal="fade-up" data-reveal-group="blog">
+          <div class="blog-card__media media-grad-2">
+          <img src="assets/images/webp10.webp" alt="" loading="lazy">
+          <div class="media-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></div></div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Operations</span>
+            <h3>The real cost of a "quick fix" spreadsheet</h3>
+            <p class="text-muted" style="font-size:var(--fs-sm);">Why manual patches compound faster than most finance teams expect.</p>
+            <div class="blog-card__meta"><span>6 min read</span><span>Jun 22, 2026</span></div>
+          </div>
+        </a>
+
+      </div>
+
+      <p data-blog-empty hidden class="text-center text-muted" style="margin-top:var(--space-xl);">No articles match your search. Try a different keyword or category.</p>
+
+      <div class="blog-pagination">
+        <button class="is-active">1</button>
+        <button> <a href="404.html">2</a> </button>
+        <button> <a href="404.html">3</a> </button>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__glow"></div>
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="brand">
+          <span class="brand__mark">
+            <img src="assets/logo/logo.webp" alt="Fulcrum logo">
+          </span>
+        </a>
+        <p>The pivot point for enterprise operations — workflows, data and decisions on one platform.</p>
+        <div class="footer__social">
+          <a href="404.html" aria-label="Fulcrum on X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4 4 16 16M20 4 4 20"/></svg></a>
+          <a href="404.html" aria-label="Fulcrum on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-5M12 11c1.5-1.5 4-1.5 4 1v4"/></svg></a>
+          <a href="404.html" aria-label="Fulcrum on GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+          <a href="404.html" aria-label="Fulcrum on YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="m10 9 5 3-5 3V9Z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="404.html">Implementation</a></li>
+          <li><a href="404.html">Managed operations</a></li>
+          <li><a href="404.html">Training &amp; enablement</a></li>
+          <li><a href="404.html">Custom integrations</a></li>
+          <li><a href="404.html">Incident response</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="login.html">Log in</a></li>
+          <li><a href="create-account.html">Create account</a></li>
+          <li><a href="contact.html">Contact support</a></li>
+          <li><a href="404.html">Privacy policy</a></li>
+          <li><a href="404.html">Terms &amp; conditions</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__marquee" data-footer-marquee>
+    <div class="footer__marquee-track">
+      <span>Stackly <svg viewBox="0 0 24 24"><path d="M12 4 6 18h12L12 4Z"/></svg></span>
+      <span>Enterprice <svg viewBox="0 0 24 24"><path d="M12 4 6 18h12L12 4Z"/></svg></span>
+      <span>Stackly <svg viewBox="0 0 24 24"><path d="M12 4 6 18h12L12 4Z"/></svg></span>
+      <span>Enterprice <svg viewBox="0 0 24 24"><path d="M12 4 6 18h12L12 4Z"/></svg></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="footer__bottom">
+      <span>© 2026 Fulcrum Technologies, Inc. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="404.html">Privacy Policy</a>
+        <a href="404.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+<script>
+  // Lightweight client-side filter for the blog grid (category + search).
+  (function () {
+    var catButtons = document.querySelectorAll('[data-blog-cats] .blog-cat');
+    var searchInput = document.querySelector('[data-blog-search]');
+    var cards = document.querySelectorAll('[data-blog-grid] .blog-card');
+    var emptyMsg = document.querySelector('[data-blog-empty]');
+    var activeCat = 'all';
+
+    function applyFilter() {
+      var term = (searchInput.value || '').trim().toLowerCase();
+      var visibleCount = 0;
+      cards.forEach(function (card) {
+        const matchesCat = activeCat === 'all' || card.getAttribute('data-cat') === activeCat;
+        const text = card.textContent.toLowerCase();
+        const matchesSearch = term === '' || text.indexOf(term) !== -1;
+        const show = matchesCat && matchesSearch;
+        card.style.display = show ? '' : 'none';
+        if (show) visibleCount++;
+      });
+      emptyMsg.hidden = visibleCount !== 0;
+    }
+
+    catButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        catButtons.forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        activeCat = btn.getAttribute('data-cat');
+        applyFilter();
+      });
+    });
+    if (searchInput) searchInput.addEventListener('input', applyFilter);
+  })();
+</script>
+</body>
+</html>
