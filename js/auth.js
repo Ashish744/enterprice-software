@@ -80,7 +80,7 @@
         if (goToDash) {
           var params = 'email=' + encodeURIComponent(emailValue) + '&role=public';
           if (fullName) params += '&name=' + encodeURIComponent(fullName);
-          goToDash.setAttribute('href', 'dashboard.html?' + params);
+          goToDash.setAttribute('href', 'login.html?' + params);
         }
         if (wrap && success) {
           gsapSafeFade(wrap, success);

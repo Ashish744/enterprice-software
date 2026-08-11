@@ -227,7 +227,7 @@ h1[data-split="lines"]::before{
   position: relative;
   overflow: hidden;
 }
-.hscroll__pin{ height: 100vh; display: flex; align-items: center; }
+.hscroll__pin{ height: 100vh; display: flex; align-items: flex-start; padding-top: var(--space-2xl); }
 .hscroll__head{
   position: absolute; top: var(--space-xl); left: 0; right: 0;
   padding-inline: var(--gutter);
@@ -241,6 +241,9 @@ h1[data-split="lines"]::before{
   padding-inline: var(--gutter);
   will-change: transform;
 }
+
+/* push cards lower so the absolute heading does not overlap them */
+.hscroll__track{ margin-top: var(--space-3xl); }
 .hscroll-card{
   flex: 0 0 clamp(300px, 34vw, 460px);
   height: 62vh;

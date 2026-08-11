@@ -50,8 +50,18 @@
   }
   .dash-sidebar-backdrop.is-visible{ opacity: 1; pointer-events: auto; }
   .dash-shell{ grid-template-columns: 1fr; }
-  .dash-main{ grid-column: 1; padding-inline: var(--space-md); }
+  .dash-main{
+    grid-column: 1;
+    padding-inline: var(--space-lg);
+    overflow-x: hidden;
+  }
   .dash-nav__left{ width: auto; }
+  .dash-bento, .kpi-grid{ grid-template-columns: 1fr !important; }
+  .dash-panel, .kpi-card, .card{ width: 100%; max-width: 100%; min-width: 0; }
+  .dash-panel{ margin-right: 0; }
+  .donut-wrap{ gap: var(--space-md); }
+  .donut-legend{ width: 100%; }
+  .donut-legend li{ font-size: .8rem; }
   .dash-menu-btn{
     display: flex; width: 38px; height: 38px; border-radius: 50%;
     align-items: center; justify-content: center; border: 1px solid var(--border-strong);
@@ -90,4 +100,53 @@
 
   .timeline__track{ padding-left: 0; }
   .timeline__item{ padding-left: 54px; }
+
+  /* For section blocks that include a floating card (image + text),
+     stack on mobile and place the image/card above the text */
+  .section--stone > .container,
+  .section--stone .container{
+    display: flex !important;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .section--stone .card-float{
+    order: -1;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 auto;
+  }
+
+  .section--stone .card-float img{
+    width: 100%;
+    height: auto !important;
+    max-height: 420px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Prevent unwanted horizontal scrolling on mobile devices */
+  html, body{
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Ensure containers respect the viewport width */
+  .container, .container-wide{
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Make media scale correctly on narrow viewports */
+  img, svg, video{
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Guard against components that use viewport width calculations */
+  .hscroll-card, [style*="width:100vw"]{
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
 }

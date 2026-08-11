@@ -162,7 +162,7 @@ body.dashboard-body{ background: var(--ink); }
 .chart-bars-labels span{ flex: 1; text-align: center; font-size: .68rem; color: var(--text-faint); font-family: var(--font-mono); }
 
 /* Donut mock */
-.donut-wrap{ display: flex; align-items: center; gap: var(--space-lg); }
+.donut-wrap{ display: flex; align-items: flex-start; gap: var(--space-lg); flex-wrap: wrap; }
 .donut{ width: 140px; height: 140px; border-radius: 50%; flex-shrink: 0;
   background: conic-gradient(var(--brass) 0% 42%, var(--teal) 42% 68%, var(--surface-3) 68% 100%);
   display: flex; align-items: center; justify-content: center; position: relative;
@@ -170,8 +170,8 @@ body.dashboard-body{ background: var(--ink); }
 .donut::after{ content:''; position: absolute; inset: 18px; border-radius: 50%; background: var(--surface); }
 .donut-center{ position: relative; z-index: 1; text-align: center; }
 .donut-center .num{ font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; }
-.donut-legend{ display: flex; flex-direction: column; gap: .6rem; }
-.donut-legend li{ display: flex; align-items: center; gap: .55rem; font-size: .85rem; color: var(--text-muted); }
+.donut-legend{ display: flex; flex-direction: column; gap: .6rem; min-width: 0; width: 100%; }
+.donut-legend li{ display: flex; align-items: center; gap: .55rem; font-size: .85rem; color: var(--text-muted); min-width: 0; white-space: normal; word-break: break-word; }
 .donut-legend .swatch{ width: 10px; height: 10px; border-radius: 3px; }
 
 /* Data table */
